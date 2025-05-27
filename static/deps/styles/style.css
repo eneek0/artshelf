@@ -1,0 +1,361 @@
+.button {
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 400;
+  transition: 0.2s;
+  background: #B979CB;
+  color: #FFF;
+  border-radius: 99em;
+  padding: 15px 46px;
+}
+.button:hover {
+  background: #9961a8;
+}
+
+.filters-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 21px;
+}
+.filters-bar__icon {
+  padding: 0;
+}
+.filters-bar__action {
+  text-decoration: none;
+  gap: 12px;
+  background: #F3CEFE;
+  color: #000;
+  display: flex;
+  align-items: center;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 99em;
+}
+.filters-bar__action--transparent {
+  background: white;
+  border: 1px solid #F3CEFE;
+}
+
+.goods-block {
+  margin-top: 64px;
+}
+.goods-block__list {
+  display: grid;
+  gap: 15px 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.card__cover img {
+  border-radius: 20px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: auto;
+  aspect-ratio: 10/9;
+  object-fit: cover;
+}
+.card__info {
+  display: flex;
+}
+.card__content {
+  flex: 1;
+}
+.card__title {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  margin: 10px 0 5px 0;
+}
+.card__username {
+  text-decoration: none;
+  color: #7A7A7A;
+  font-size: 14px;
+}
+.card__price {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.artists-block {
+  margin-top: 64px;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+body {
+  background: #F8F8F1;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 400;
+  font-family: "Ysabeau SC", sans-serif;
+}
+
+.content {
+  margin: 0 auto;
+  display: block;
+  width: 1000px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.header {
+  background: #FEF5FF;
+  position: fixed;
+  width: 100%;
+  border-radius: 0 0 20px 20px;
+  z-index: 99999;
+}
+.header__container {
+  height: 75px;
+  max-width: 1500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+.header__item {
+  display: flex;
+  align-items: center;
+}
+.header__logo {
+  margin-left: 2rem;
+  width: 103px;
+  height: auto;
+}
+.header__navigation {
+  padding-left: 21px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.header__button {
+  border-radius: 20px;
+  color: #000;
+  text-decoration: none;
+  padding: 14px 14px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: 0.2s;
+}
+.header__button:hover {
+  background-color: rgba(112, 84, 121, 0.1);
+}
+.header__button--accent {
+  background: #B979CB;
+  color: #FFF;
+  border-radius: 99em;
+  padding: 14px 17px;
+}
+.header__button--accent:hover {
+  background: #9961a8;
+}
+.header__button--circle {
+  margin: 0 4px;
+  background: #FFF;
+  padding: 0;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header__button--circle:hover {
+  background-color: #FFF;
+  color: #B979CB;
+}
+.header__actions {
+  margin-right: 2rem;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.search-bar {
+  height: 45px;
+  border-radius: 99em;
+  margin-right: 21px;
+  background: #FFF;
+  display: flex;
+  align-items: center;
+}
+.search-bar__icon {
+  margin-left: 0.75rem;
+}
+.search-bar__filters {
+  padding-right: 0.75rem;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  gap: 8px;
+}
+.search-bar__input {
+  border: none;
+  outline: none;
+  min-height: 100%;
+  padding: 0 0.5rem;
+  display: inline-block;
+  flex: 1;
+}
+.search-bar__filters-item {
+  font-size: 0.85rem;
+  padding: 5px 10px;
+  border-radius: 99em;
+  background: transparent;
+  border: 1px dashed #6294BF;
+}
+.search-bar__filters-item.active {
+  background: #000;
+  color: #FFF;
+  border: 1px solid #000;
+}
+
+.hero-block {
+  padding-top: 150px;
+  padding-bottom: 50px;
+}
+.hero-block .content {
+  display: flex;
+}
+.hero-block__container {
+  display: flex;
+  align-content: center;
+  gap: 20px;
+}
+.hero-block__title {
+  font-family: "Ysabeau SC", sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+}
+.hero-block__content {
+  flex: 1;
+}
+.hero-block__image {
+  width: 125px;
+  height: auto;
+}
+.hero-block__description {
+  width: 450px;
+  font-size: 18px;
+  line-height: 1.2;
+}
+.hero-block__cta-button {
+  margin-top: 65px;
+  position: relative;
+  width: 162px;
+  height: 162px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.hero-block__cta-svg {
+  width: 162px;
+  height: 162px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: 40s hero-animation infinite linear;
+}
+.hero-block__cta-text {
+  text-align: center;
+  z-index: 2;
+  font-size: 1.15rem;
+  line-height: 120%;
+  color: #FFF;
+  font-weight: 500;
+  position: relative;
+}
+.hero-block__cover {
+  right: 0;
+  height: 400px;
+  width: 100%;
+  min-width: 250px;
+  max-width: 700px;
+  background: url("../assets/chill-guy.png") no-repeat;
+  background-size: cover;
+}
+
+@keyframes hero-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
+}
+.products-block__content {
+  display: flex;
+  gap: 20px;
+}
+.products-block__popular, .products-block__items {
+  flex: 1;
+}
+.products-block__items {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+.products-block__item {
+  border-radius: 25px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25);
+  display: block;
+  overflow: hidden;
+}
+.products-block__item img {
+  aspect-ratio: 10/9;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.block-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.block-bar__actions {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.line {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  background: #B979CB;
+}
+
+.line__inner {
+  color: white;
+  flex-shrink: 0;
+  display: flex;
+  gap: 5px;
+  font-size: 20px;
+  animation: anim 100s linear infinite;
+}
+
+@keyframes anim {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 10px));
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

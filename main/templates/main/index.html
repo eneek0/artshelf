@@ -1,0 +1,267 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="{% static "deps/styles/normalize.css" %}" rel="stylesheet">
+  <link href="{% static "deps/styles/style.css" %}" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Ysabeau+SC:wght@1..1000&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="scripts/main.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__container">
+      <div class="header__item">
+        <img src="{% static "deps/assets/logo.png" %}" alt="Логотип artshelf" class="header__logo">
+      </div>
+      <ul class="header__navigation">
+        <li class="header__link">
+          <a href="#" class="header__button">Каталог</a>
+        </li>
+        <li class="header__link">
+          <a href="#" class="header__button">Художники</a>
+        </li>
+        <li class="header__link">
+          <a href="#" class="header__button">Мероприятия</a>
+        </li>
+      </ul>
+      <div class="header__item header__actions">
+        <div class="search-bar">
+          <span class="search-bar__icon material-symbols-outlined">search</span>
+          <input type="search" class="search-bar__input" placeholder="Поиск">
+          <ul class="search-bar__filters">
+            <li class="search-bar__filters-item active">Каталог</li>
+            <li class="search-bar__filters-item">Художники</li>
+            <li class="search-bar__filters-item">Мероприятия</li>
+          </ul>
+        </div>
+        <a href="#" class="header__button header__button--accent" style="margin-right: 21px;">Загрузить свой мерч</a>
+        <a href="#" class="header__button header__button--circle">
+          <span class="material-symbols-outlined">favorite</span>
+        </a>
+        <a href="#" class="header__button header__button--circle">
+          <span class="material-symbols-outlined">account_circle</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  <div class="hero-block">
+    <div class="content">
+      <div class="hero-block__content">
+        <h1 class="hero-block__title title">Авторская печатная продукция</h1>
+        <p class="hero-block__description">Платформа, где независимые художники делятся своей уникальной печатной
+          продукцией. Открывайте, коллекционируйте
+          и поддерживайте креативных авторов напрямую, или станьте автором сами.</p>
+        <a href="#" class="hero-block__cta-button">
+          <svg class="hero-block__cta-svg" viewBox="0 0 162 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M62.2424 143.246V18.7537C62.2424 8.39631 70.6387 0 80.9961 0C91.3535 0 99.7498 8.39631 99.7498 18.7537V143.246C99.7498 153.604 91.3535 162 80.9961 162C70.6387 162 62.2424 153.604 62.2424 143.246Z"
+              fill="#B979CB" />
+            <path
+              d="M33.6322 125.528L95.8785 17.7143C101.057 8.74457 112.527 5.6713 121.497 10.85C130.466 16.0287 133.54 27.4983 128.361 36.468L66.1146 144.282C60.9359 153.252 49.4663 156.325 40.4965 151.146C31.5268 145.967 28.4535 134.498 33.6322 125.528Z"
+              fill="#B979CB" />
+            <path
+              d="M17.7141 95.8785L125.528 33.6322C134.498 28.4535 145.967 31.5268 151.146 40.4965C156.325 49.4663 153.251 60.9359 144.282 66.1146L36.4678 128.361C27.498 133.54 16.0285 130.466 10.8498 121.497C5.67109 112.527 8.74435 101.057 17.7141 95.8785Z"
+              fill="#B979CB" />
+            <path
+              d="M18.7537 62.2422L143.246 62.2422C153.604 62.2422 162 70.6385 162 80.9959C162 91.3533 153.604 99.7496 143.246 99.7496L18.7537 99.7496C8.39632 99.7496 1.70775e-06 91.3533 2.16048e-06 80.9959C2.61322e-06 70.6385 8.39632 62.2422 18.7537 62.2422Z"
+              fill="#B979CB" />
+            <path
+              d="M36.4717 33.6322L144.285 95.8785C153.255 101.057 156.328 112.527 151.15 121.497C145.971 130.466 134.501 133.54 125.532 128.361L17.718 66.1146C8.74823 60.9359 5.67496 49.4663 10.8537 40.4965C16.0323 31.5268 27.5019 28.4535 36.4717 33.6322Z"
+              fill="#B979CB" />
+            <path
+              d="M66.121 17.7141L128.367 125.528C133.546 134.498 130.473 145.967 121.503 151.146C112.533 156.325 101.064 153.251 95.8849 144.282L33.6386 36.4678C28.4599 27.4981 31.5332 16.0285 40.503 10.8498C49.4727 5.67109 60.9423 8.74435 66.121 17.7141Z"
+              fill="#B979CB" />
+          </svg>
+          <span class="hero-block__cta-text">Перейти в <br />каталог</span>
+        </a>
+      </div>
+      <div class="hero-block__cover">
+      </div>
+    </div>
+    <div class="line">
+      <div class="line__inner">
+        <span></span>
+        <span>СТИКЕРЫ БРЕЛОКИ ОТКРЫТКИ ПОСТЕРЫ ЗНАЧКИ КОМИКСЫ КРУЖКИ СТЕНДЫ СТИКЕРЫ БРЕЛОКИ ОТКРЫТКИ ПОСТЕРЫ ЗНАЧКИ
+          КОМИКСЫ КРУЖКИ СТЕНДЫ</span>
+        <span>СТИКЕРЫ БРЕЛОКИ ОТКРЫТКИ ПОСТЕРЫ ЗНАЧКИ КОМИКСЫ КРУЖКИ СТЕНДЫ СТИКЕРЫ БРЕЛОКИ ОТКРЫТКИ ПОСТЕРЫ ЗНАЧКИ
+          КОМИКСЫ КРУЖКИ СТЕНДЫ</span>
+        <span>СТИКЕРЫ БРЕЛОКИ ОТКРЫТКИ ПОСТЕРЫ ЗНАЧКИ КОМИКСЫ КРУЖКИ СТЕНДЫ СТИКЕРЫ БРЕЛОКИ ОТКРЫТКИ ПОСТЕРЫ ЗНАЧКИ
+          КОМИКСЫ КРУЖКИ СТЕНДЫ</span>
+        <span>СТИКЕРЫ БРЕЛОКИ ОТКРЫТКИ ПОСТЕРЫ ЗНАЧКИ КОМИКСЫ КРУЖКИ СТЕНДЫ СТИКЕРЫ БРЕЛОКИ ОТКРЫТКИ ПОСТЕРЫ ЗНАЧКИ
+          КОМИКСЫ КРУЖКИ СТЕНДЫ</span>
+        <span>СТИКЕРЫ БРЕЛОКИ ОТКРЫТКИ ПОСТЕРЫ ЗНАЧКИ КОМИКСЫ КРУЖКИ СТЕНДЫ СТИКЕРЫ БРЕЛОКИ ОТКРЫТКИ ПОСТЕРЫ ЗНАЧКИ
+          КОМИКСЫ КРУЖКИ СТЕНДЫ</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="products-block">
+    <div class="content">
+      <div class="block-bar">
+        <h2 class="block-bar__title title">Популярные товары</h2>
+        <a href="#" class="block-bar__button button">Смотреть все</a>
+      </div>
+      <div class="products-block__content">
+        <div class="products-block__popular">
+          <a class="products-block__item products-block__main-item" href="#">
+            <img src="{% static "deps/assets/dudka.png" %}" alt="">
+          </a>
+        </div>
+        <div class="products-block__items">
+          <a href="#" class="products-block__item">
+            <img src="{% static "deps/assets/dudka.png" %}" alt="">
+          </a>
+          <a href="#" class="products-block__item">
+            <img src="{% static "deps/assets/dudka.png" %}" alt="">
+          </a>
+          <a href="#" class="products-block__item">
+            <img src="{% static "deps/assets/dudka.png" %}" alt="">
+          </a>
+          <a href="#" class="products-block__item">
+            <img src="{% static "deps/assets/dudka.png" %}" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="goods-block">
+    <div class="content">
+      <div class="block-bar">
+        <h2 class="block-bar__title title hidden">Все товары</h2>
+      </div>
+      <div class="filters-bar">
+        <button class="filters-bar__action filters-bar__action--transparent">
+          Новое <span class="filters-bar__icon material-symbols-outlined">keyboard_arrow_down</span>
+        </button>
+        <a href="#" class="button">
+          В каталог
+        </a>
+      </div>
+      <div class="goods-block__list">
+        <div class="card">
+          <a class="card__cover" href="#">
+            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
+          </a>
+          <div class="card__info">
+            <div class="card__content">
+              <p class="card__title">Значок “I’m trying to be cool about it”</p>
+              <a class="card__username" href="#">@sfiiosadlk</a>
+            </div>
+            <div class="card__price">50 ₽</div>
+          </div>
+        </div>
+        <div class="card">
+          <a class="card__cover" href="#">
+            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
+          </a>
+          <div class="card__info">
+            <div class="card__content">
+              <p class="card__title">Значок “I’m trying to be cool about it”</p>
+              <a class="card__username" href="#">@sfiiosadlk</a>
+            </div>
+            <div class="card__price">50 ₽</div>
+          </div>
+        </div>
+        <div class="card">
+          <a class="card__cover" href="#">
+            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
+          </a>
+          <div class="card__info">
+            <div class="card__content">
+              <p class="card__title">Значок “I’m trying to be cool about it”</p>
+              <a class="card__username" href="#">@sfiiosadlk</a>
+            </div>
+            <div class="card__price">50 ₽</div>
+          </div>
+        </div>
+        <div class="card">
+          <a class="card__cover" href="#">
+            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
+          </a>
+          <div class="card__info">
+            <div class="card__content">
+              <p class="card__title">Значок “I’m trying to be cool about it”</p>
+              <a class="card__username" href="#">@sfiiosadlk</a>
+            </div>
+            <div class="card__price">50 ₽</div>
+          </div>
+        </div>
+        <div class="card">
+          <a class="card__cover" href="#">
+            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
+          </a>
+          <div class="card__info">
+            <div class="card__content">
+              <p class="card__title">Значок “I’m trying to be cool about it”</p>
+              <a class="card__username" href="#">@sfiiosadlk</a>
+            </div>
+            <div class="card__price">50 ₽</div>
+          </div>
+        </div>
+        <div class="card">
+          <a class="card__cover" href="#">
+            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
+          </a>
+          <div class="card__info">
+            <div class="card__content">
+              <p class="card__title">Значок “I’m trying to be cool about it”</p>
+              <a class="card__username" href="#">@sfiiosadlk</a>
+            </div>
+            <div class="card__price">50 ₽</div>
+          </div>
+        </div>
+        <div class="card">
+          <a class="card__cover" href="#">
+            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
+          </a>
+          <div class="card__info">
+            <div class="card__content">
+              <p class="card__title">Значок “I’m trying to be cool about it”</p>
+              <a class="card__username" href="#">@sfiiosadlk</a>
+            </div>
+            <div class="card__price">50 ₽</div>
+          </div>
+        </div>
+        <div class="card">
+          <a class="card__cover" href="#">
+            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
+          </a>
+          <div class="card__info">
+            <div class="card__content">
+              <p class="card__title">Значок “I’m trying to be cool about it”</p>
+              <a class="card__username" href="#">@sfiiosadlk</a>
+            </div>
+            <div class="card__price">50 ₽</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="artists-block">
+    <div class="content">
+      <div class="block-bar">
+        <h2 class="block-bar__title title">Популярные художники</h2>
+        <a href="#" class="block-bar__button button">Смотреть все</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+
+</html>
