@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArtShelf</title>
+  <link href="{% static "deps/styles/normalize.css" %}" rel="stylesheet">
+  <link href="{% static "deps/styles/style.css" %}" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Ysabeau+SC:wght@1..1000&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script src="scripts/main.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__container">
+      <div class="header__item">
+        <a href="{% url "main:index" %}"><img src="{% static "deps/assets/logo.png" %}" alt="Логотип artshelf" class="header__logo"></a>
+      </div>
+      <ul class="header__navigation">
+        <li class="header__link">
+          <a href="#" class="header__button">Каталог</a>
+        </li>
+        <li class="header__link">
+          <a href="#" class="header__button">Художники</a>
+        </li>
+        <li class="header__link">
+          <a href="#" class="header__button">Мероприятия</a>
+        </li>
+      </ul>
+      <div class="header__item header__actions">
+        <div class="search-bar">
+          <span class="search-bar__icon material-symbols-outlined">search</span>
+          <input type="search" class="search-bar__input" placeholder="Поиск">
+          <ul class="search-bar__filters">
+            <li class="search-bar__filters-item active">Каталог</li>
+            <li class="search-bar__filters-item">Художники</li>
+            <li class="search-bar__filters-item">Мероприятия</li>
+          </ul>
+        </div>
+        <a href="#" class="header__button header__button--accent" style="margin-right: 21px;">Загрузить свой мерч</a>
+        <a href="#" class="header__button header__button--circle">
+          <span class="material-symbols-outlined">favorite</span>
+        </a>
+        <a href="#" class="header__button header__button--circle">
+          <span class="material-symbols-outlined">account_circle</span>
+        </a>
+      </div>
+    </div>
+  </header>
+  
+{% block content %}
+{% endblock content %}
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+
+</html>
