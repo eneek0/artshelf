@@ -46,102 +46,20 @@
         </a>
       </div>
       <div class="goods-block__list">
+        {% for product in goods %}
         <div class="card">
           <a class="card__cover" href="#">
-            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
+            <img src="{% static product.image %}" class="card__image-cover" />
           </a>
           <div class="card__info">
             <div class="card__content">
-              <p class="card__title">Значок “I’m trying to be cool about it”</p>
-              <a class="card__username" href="#">@sfiiosadlk</a>
+              <p class="card__title">{{ product.title }}</p>
+              <a class="card__username" href="#">@{{ product.user }}</a>
             </div>
-            <div class="card__price">50 ₽</div>
+            <div class="card__price">{{ product.price }}₽</div>
           </div>
         </div>
-        <div class="card">
-          <a class="card__cover" href="#">
-            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
-          </a>
-          <div class="card__info">
-            <div class="card__content">
-              <p class="card__title">Значок “I’m trying to be cool about it”</p>
-              <a class="card__username" href="#">@sfiiosadlk</a>
-            </div>
-            <div class="card__price">50 ₽</div>
-          </div>
-        </div>
-        <div class="card">
-          <a class="card__cover" href="#">
-            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
-          </a>
-          <div class="card__info">
-            <div class="card__content">
-              <p class="card__title">Значок “I’m trying to be cool about it”</p>
-              <a class="card__username" href="#">@sfiiosadlk</a>
-            </div>
-            <div class="card__price">50 ₽</div>
-          </div>
-        </div>
-        <div class="card">
-          <a class="card__cover" href="#">
-            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
-          </a>
-          <div class="card__info">
-            <div class="card__content">
-              <p class="card__title">Значок “I’m trying to be cool about it”</p>
-              <a class="card__username" href="#">@sfiiosadlk</a>
-            </div>
-            <div class="card__price">50 ₽</div>
-          </div>
-        </div>
-        <div class="card">
-          <a class="card__cover" href="#">
-            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
-          </a>
-          <div class="card__info">
-            <div class="card__content">
-              <p class="card__title">Значок “I’m trying to be cool about it”</p>
-              <a class="card__username" href="#">@sfiiosadlk</a>
-            </div>
-            <div class="card__price">50 ₽</div>
-          </div>
-        </div>
-        <div class="card">
-          <a class="card__cover" href="#">
-            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
-          </a>
-          <div class="card__info">
-            <div class="card__content">
-              <p class="card__title">Значок “I’m trying to be cool about it”</p>
-              <a class="card__username" href="#">@sfiiosadlk</a>
-            </div>
-            <div class="card__price">50 ₽</div>
-          </div>
-        </div>
-        <div class="card">
-          <a class="card__cover" href="#">
-            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
-          </a>
-          <div class="card__info">
-            <div class="card__content">
-              <p class="card__title">Значок “I’m trying to be cool about it”</p>
-              <a class="card__username" href="#">@sfiiosadlk</a>
-            </div>
-            <div class="card__price">50 ₽</div>
-          </div>
-        </div>
-        <div class="card">
-          <a class="card__cover" href="#">
-            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
-          </a>
-          <div class="card__info">
-            <div class="card__content">
-              <p class="card__title">Значок “I’m trying to be cool about it”</p>
-              <a class="card__username" href="#">@sfiiosadlk</a>
-            </div>
-            <div class="card__price">50 ₽</div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>
