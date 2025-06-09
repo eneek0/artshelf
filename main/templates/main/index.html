@@ -1,5 +1,6 @@
 {% extends "main/base.html" %}
 {% load static %}
+{% load goods_tags %}
 
 {% block content %}
 <body>
@@ -98,102 +99,25 @@
         </a>
       </div>
       <div class="goods-block__list">
+        {% goods as goods %}
+        {% for product in goods %}
         <div class="card">
           <a class="card__cover" href="#">
-            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
+            {% if product.image %}
+            <img src="{{ product.image.url }}" class="card__image-cover" alt="{{ product.title }}" />
+            {% else %}
+            <img src="{% static "deps/assets/image_not_found.png" %}" class="card__image-cover" />
+            {% endif %}
           </a>
           <div class="card__info">
             <div class="card__content">
-              <p class="card__title">Значок “I’m trying to be cool about it”</p>
-              <a class="card__username" href="#">@sfiiosadlk</a>
+              <p class="card__title">{{ product.title }}</p>
+              <a class="card__username" href="#">@username</a>
             </div>
-            <div class="card__price">50 ₽</div>
+            <div class="card__price">{{ product.price }}₽</div>
           </div>
         </div>
-        <div class="card">
-          <a class="card__cover" href="#">
-            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
-          </a>
-          <div class="card__info">
-            <div class="card__content">
-              <p class="card__title">Значок “I’m trying to be cool about it”</p>
-              <a class="card__username" href="#">@sfiiosadlk</a>
-            </div>
-            <div class="card__price">50 ₽</div>
-          </div>
-        </div>
-        <div class="card">
-          <a class="card__cover" href="#">
-            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
-          </a>
-          <div class="card__info">
-            <div class="card__content">
-              <p class="card__title">Значок “I’m trying to be cool about it”</p>
-              <a class="card__username" href="#">@sfiiosadlk</a>
-            </div>
-            <div class="card__price">50 ₽</div>
-          </div>
-        </div>
-        <div class="card">
-          <a class="card__cover" href="#">
-            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
-          </a>
-          <div class="card__info">
-            <div class="card__content">
-              <p class="card__title">Значок “I’m trying to be cool about it”</p>
-              <a class="card__username" href="#">@sfiiosadlk</a>
-            </div>
-            <div class="card__price">50 ₽</div>
-          </div>
-        </div>
-        <div class="card">
-          <a class="card__cover" href="#">
-            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
-          </a>
-          <div class="card__info">
-            <div class="card__content">
-              <p class="card__title">Значок “I’m trying to be cool about it”</p>
-              <a class="card__username" href="#">@sfiiosadlk</a>
-            </div>
-            <div class="card__price">50 ₽</div>
-          </div>
-        </div>
-        <div class="card">
-          <a class="card__cover" href="#">
-            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
-          </a>
-          <div class="card__info">
-            <div class="card__content">
-              <p class="card__title">Значок “I’m trying to be cool about it”</p>
-              <a class="card__username" href="#">@sfiiosadlk</a>
-            </div>
-            <div class="card__price">50 ₽</div>
-          </div>
-        </div>
-        <div class="card">
-          <a class="card__cover" href="#">
-            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
-          </a>
-          <div class="card__info">
-            <div class="card__content">
-              <p class="card__title">Значок “I’m trying to be cool about it”</p>
-              <a class="card__username" href="#">@sfiiosadlk</a>
-            </div>
-            <div class="card__price">50 ₽</div>
-          </div>
-        </div>
-        <div class="card">
-          <a class="card__cover" href="#">
-            <img src="{% static "deps/assets/dudka.png" %}" class="card__image-cover" />
-          </a>
-          <div class="card__info">
-            <div class="card__content">
-              <p class="card__title">Значок “I’m trying to be cool about it”</p>
-              <a class="card__username" href="#">@sfiiosadlk</a>
-            </div>
-            <div class="card__price">50 ₽</div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </div>
