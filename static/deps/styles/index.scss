@@ -448,6 +448,29 @@ hr {
   &__details-content {
     padding-top: 15px;
   }
+  &__breadcrumbs {
+    a {
+      position: relative;
+      color: #484848; /*задаём цвет ссылки*/
+      cursor: pointer;
+      line-height: 1; /*задаём высоту строки*/
+      text-decoration:none;
+    }
+    a:after {
+      display: block;
+      position: absolute;
+      left: 0; /*изменить на right:0;, чтобы изменить направление подчёркивания */
+      width: 0;/*задаём длинну линии до наведения курсора*/
+      height: 1px; /*задаём ширину линии*/
+      background-color: #484848; /*задаём цвет линии*/
+      content: "";
+      transition: width 0.3s ease-out; /*задаём время анимации*/
+    }
+    a:hover:after,
+    a:focus:after {
+      width: 100%; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
+    }
+  }
 }
 .product-favorite-btn {
   position: absolute;

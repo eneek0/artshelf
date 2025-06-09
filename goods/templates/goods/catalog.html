@@ -47,13 +47,15 @@
       </div>
       <aside class="filter-menu" id="filterMenu">
         <div class="filter-menu__scroll">
+          <form method="get" action="">
           <div class="filter-menu__section">
             <h3 class="filter-menu__title">Тип продукции</h3>
             <ul class="filter-menu__categories">
               {% categories as categories %}
               {% for category in categories %}
               <li>
-                <input type="checkbox" id="type{{ forloop.counter }}" name="categories" value="{{ category.id }}">
+                <input type="checkbox" id="type{{ forloop.counter }}" name="categories" value="{{ category.id }}"
+                {% if category.id in selected_categories %}checked{% endif %}>
                 <label for="type{{ forloop.counter }}">{{ category.name }}</label>
               </li>
               {% endfor %}
@@ -72,17 +74,17 @@
           <div class="filter-menu__section">
             <h3 class="filter-menu__title">Наличие</h3>
             <label>
-              <input type="radio" name="availability" checked>
+              <input type="radio" name="availability">
               В наличии
             </label>
           </div>
-          {% comment %} <button class="button">Применить</button> {% endcomment %}
-          <a href="#" class="button">Применить</a>
+          <button type="submit" class="button">Применить</button>
+          </form>
         </div>
       </aside>
       <div class="goods-block__list">
-        {% goods as goods %}
-        {% for product in goods %}
+        {% comment %} {% goods as goods %} {% endcomment %}
+        {% for product in products %}
         <div class="card">
           <a class="card__cover" href="{% url "catalog:product" product.slug %}">
             {% if product.image %}
@@ -99,6 +101,8 @@
             <div class="card__price">{{ product.price }}₽</div>
           </div>
         </div>
+        {% empty %}
+        <p>Нет товаров по выбранным категориям</p>
         {% endfor %}
       </div>
     </div>
