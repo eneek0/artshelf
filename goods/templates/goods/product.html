@@ -1,2 +1,86 @@
 {% extends "main/base.html" %}
 {% load static %}
+
+{% block content %}
+<main class="product-page">
+    <div class="content">
+        <div class="product-page__container">
+            <nav class="product-page__breadcrumbs">
+                <a href="{% url "main:index" %}">Главная</a> /
+                <a href="{% url "catalog:index" %}">Каталог</a> /
+                <span>{{product.title}}</span>
+            </nav>
+            <section class="product-page__content">
+                <div class="product-page__gallery">
+                    <div class="product-page__gallery-wrapper">
+                        <img src="{{ product.image.url }}" alt="#" class="product-page__image-main"/>
+                        <button class="product-favorite-btn">
+                            <span class="material-symbols-outlined product-favorite-btn__icon">favorite</span>
+                        </button>
+                    </div>
+                    <p class="product-page__date">Опубликовано 01.01.2025</p>
+                </div>
+
+                <div class="product-page__info">
+                    <div class="product-page__title-container">
+                        <h1 class="product-page__title">{{product.title}}</h1>
+                        <p class="product-page__price">{{product.price}}₽</p>
+                    </div>
+                    <p class="product-page__category">{{product.category}}</p>
+                    <ul class="product-page__tags">
+                        <li class="product-page__tag">красное</li>
+                        <li class="product-page__tag">милое</li>
+                        <li class="product-page__tag">стикеры</li>
+                        <li class="product-page__tag">стикерпак</li>
+                        <li class="product-page__tag">бантики</li>
+                    </ul>
+
+                    {% if product.description %}
+                    <p class="product-page__description">
+                        {{ product.description }}
+                    </p>
+                    {% else %}
+                    <p class="product-page__description">
+                        У товара нет описания.
+                    </p>
+                    {% endif %}
+
+                    <ul class="product-page__details">
+                        <hr>
+                        <li>
+                            <details class="product-page__details-item">
+                                <summary class="product-page__details-title">РАЗМЕР</summary>
+                                <div class="product-page__details-content">10x15 см</div>
+                            </details>
+                        </li>
+                        <hr>
+                        <li>
+                            <details class="product-page__details-item">
+                                <summary class="product-page__details-title">МАТЕРИАЛ</summary>
+                                <div class="product-page__details-content">10x15 см</div>
+                            </details>
+                        </li>
+                        <hr>
+                        <li>
+                            <details class="product-page__details-item">
+                                <summary class="product-page__details-title">НАЛИЧИЕ</summary>
+                                <div class="product-page__details-content">10x15 см</div>
+                            </details>
+                        </li>
+                        <hr>
+                    </ul>
+
+                    <div class="product-page__author">
+                        <div class="product-page__author-info">
+                            <img src="/path/to/author-avatar.jpg" alt="Rojasole" class="product-page__author-avatar" />
+                            <span class="product-page__author-name">Rojasole</span>
+                        </div>
+                        <button class="product-page__contact-button">Связаться</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+
+{% endblock content %}

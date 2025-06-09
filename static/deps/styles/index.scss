@@ -349,3 +349,125 @@ hr {
   padding: 5px;
   font-size: 14px;
 }
+
+.product-page {
+  &__container {
+    padding-top: 165px;
+  }
+  // &__image-main {
+  //   border-radius: 25px;
+  //   box-shadow: 0 4px 5px rgba(0, 0, 0, .25);
+  //   display: block;
+  //   overflow: hidden;
+  //   aspect-ratio: 10/9;
+  //   object-fit: cover;
+  //   width: 100%;
+  //   height: auto;
+  // }
+  &__content {
+    display: flex;
+    gap: 40px; // расстояние между колонками
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 40px;
+
+    // Адаптивно: колонки одна под другой на узких экранах
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+  &__gallery {
+    flex: 1 1 50%;
+    max-width: 561px;
+    img {
+      width: 100%;
+      height: 540px;
+      display: block;
+      border-radius: 25px;
+      box-shadow: 0 4px 5px rgba(0, 0, 0, .25);
+      object-fit: cover;
+      }
+    }
+  &__info {
+    flex: 1 1 45%;
+    min-width: 280px;
+    background-color: #FFF;
+    border-radius: 25px;
+    padding: 25px;
+  }
+  &__title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__title {
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0px;
+  }
+  &__price {
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0px;
+  }
+  &__category {
+    margin-top: 10px;
+    color: #848484;
+    font-size: 14px;
+  }
+  &__tags {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  &__tag {
+    display: inline-block;
+    padding: 5px 10px 5px 10px;
+    background-color: #FFE4FB;
+    border-radius: 25px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  &__description {
+    font-size: 16px;
+  }
+  &__gallery-wrapper {
+    position: relative;
+  }
+  &__details {
+    list-style-type: none;
+    padding: 0;
+  }
+  &__details-item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    ::marker {
+      content: "";
+    }
+  }
+  &__details-content {
+    padding-top: 15px;
+  }
+}
+.product-favorite-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  margin: 0;
+  background: #FFF;
+  padding: 0;
+  border-radius: 100%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  border-color: #B979CB;
+  cursor: pointer;
+  color: #B979CB;
+  &:hover {
+    background-color: #B979CB;
+    color: #FFF;
+  }
+}
