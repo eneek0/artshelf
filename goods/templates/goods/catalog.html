@@ -39,13 +39,48 @@
         <h2 class="block-bar__title title hidden">Все товары</h2>
       </div>
       <div class="filters-bar">
-        <button class="filters-bar__action filters-bar__action--transparent">
+        <button onclick="toggleMenu()" class="filters-bar__action active">
           <span class="filters-bar__icon material-symbols-outlined">keyboard_arrow_down</span> Фильтры
         </button>
         <button class="filters-bar__action filters-bar__action--transparent">
           Новое <span class="filters-bar__icon material-symbols-outlined">keyboard_arrow_down</span>
         </button>
       </div>
+      <aside class="filter-menu" id="filterMenu">
+        <div class="filter-menu__scroll">
+          <div class="filter-menu__section">
+            <h3 class="filter-menu__title">Тип продукции</h3>
+            <ul class="filter-menu__categories">
+              {% categories as categories %}
+              {% for category in categories %}
+              <li>
+                <input type="checkbox" id="type{{ forloop.counter }}" name="categories" value="{{ category.id }}">
+                <label for="type{{ forloop.counter }}">{{ category.name }}</label>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <hr>
+          <div class="filter-menu__section">
+            <h3 class="filter-menu__title">Цена</h3>
+            <div class="price-range">
+              <input type="number" placeholder="от" min="0">
+              <span>–</span>
+              <input type="number" placeholder="до" min="0">
+            </div>
+          </div>
+          <hr>
+          <div class="filter-menu__section">
+            <h3 class="filter-menu__title">Наличие</h3>
+            <label>
+              <input type="radio" name="availability" checked>
+              В наличии
+            </label>
+          </div>
+          {% comment %} <button class="button">Применить</button> {% endcomment %}
+          <a href="#" class="button">Применить</a>
+        </div>
+      </aside>
       <div class="goods-block__list">
         {% goods as goods %}
         {% for product in goods %}
@@ -69,4 +104,21 @@
       </div>
     </div>
   </div>
+  <!-- JavaScript для открытия/закрытия меню -->
+  <script>
+    const filterMenu = document.getElementById("filterMenu");
+
+    function toggleMenu() {
+      filterMenu.classList.toggle("open");
+    }
+
+    document.addEventListener("click", function(event) {
+      const isClickInside = filterMenu.contains(event.target);
+      const isButton = event.target.closest(".filters-bar__action");
+
+      if (!isClickInside && !isButton && filterMenu.classList.contains("open")) {
+        filterMenu.classList.remove("open");
+      }
+    });
+  </script>
 {% endblock content %}
