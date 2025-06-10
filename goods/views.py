@@ -20,11 +20,15 @@ def product(request, product_slug):
     return render(request, 'goods/product.html', context=context)
 
 
+from urllib import request
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from goods.models import Products
 from goods.models import Categories  # если у тебя отдельная модель категорий
 
 def catalog(request):
+    page = request.GET.get('page', 1) 
+
     category_ids = request.GET.getlist('categories')  # получаем id выбранных категорий
     if category_ids:
         products = Products.objects.filter(category__id__in=category_ids).distinct()
@@ -33,8 +37,11 @@ def catalog(request):
 
     categories = Categories.objects.all()  # чтобы отрисовать список в шаблоне
 
+    paginator = Paginator(products, 4)
+    current_page = paginator.page(int(page))
+
     context = {
-        'products': products,
+        'products': current_page,
         'categories': categories,
         'selected_categories': list(map(int, category_ids)),  # для галочек в чекбоксах
     }

@@ -202,7 +202,7 @@ body {
     position: absolute;
     right: 0;
     height: 399px;
-    width: 45vw; /* Можно варьировать ширину */
+    width: 50vw; /* Можно варьировать ширину */
     overflow: hidden;
     pointer-events: none;
     img {
@@ -514,4 +514,14 @@ hr {
     display: flex;
     align-items: center;
   }
+}
+
+.disabled {
+  color: #848484 !important;
+  cursor: default;
+  text-decoration: none;
+}
+
+.enabled {
+  color: #B979CB !important;
 }

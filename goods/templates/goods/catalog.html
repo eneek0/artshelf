@@ -105,6 +105,31 @@
         <p>Нет товаров по выбранным категориям</p>
         {% endfor %}
       </div>
+      <nav class="goods__pagination">
+        <ul class="goods__pagination-list">
+          <li class="goods__pagination-item">
+            <a class="{% if not products.has_previous %}disabled{% endif %}" href=" {% if products.has_previous %}
+            ?page={{products.previous_page_number}}
+            {% else %}
+            #
+            {% endif %}
+            ">Предыдущая</a></li>
+
+          {% for page in products.paginator.page_range %}
+          <li class="goods__pagination-item">
+            <a class="{% if products.number == page %}enabled{% endif %}" href="?page={{page}}">{{page}}</a>
+          </li>
+          {% endfor %}
+
+          <li class="goods__pagination-item">
+            <a class="{% if not products.has_next %}disabled{% endif %}" href=" {% if products.has_next %}
+            ?page={{products.next_page_number}}
+            {% else %}
+            #
+            {% endif %}
+            ">Следующая</a></li>
+        </ul>
+      </nav>
     </div>
   </div>
   <!-- JavaScript для открытия/закрытия меню -->
