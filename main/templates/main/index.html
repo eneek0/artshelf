@@ -2,6 +2,11 @@
 {% load static %}
 {% load goods_tags %}
 
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+{% endblock head %}
+
 {% block content %}
 <body>
   <div class="hero-block">
@@ -11,7 +16,7 @@
         <p class="hero-block__description">Платформа, где независимые художники делятся своей уникальной печатной
           продукцией. Открывайте, коллекционируйте
           и поддерживайте креативных авторов напрямую, или станьте автором сами.</p>
-        <a href="#" class="hero-block__cta-button">
+        <a href="{% url "catalog:index" %}" class="hero-block__cta-button">
           <svg class="hero-block__cta-svg" viewBox="0 0 162 162" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M62.2424 143.246V18.7537C62.2424 8.39631 70.6387 0 80.9961 0C91.3535 0 99.7498 8.39631 99.7498 18.7537V143.246C99.7498 153.604 91.3535 162 80.9961 162C70.6387 162 62.2424 153.604 62.2424 143.246Z"
@@ -35,8 +40,9 @@
           <span class="hero-block__cta-text">Перейти в <br />каталог</span>
         </a>
       </div>
-      <div class="hero-block__cover">
-      </div>
+    <div class="hero-block__cover">
+      <img src="{% static "deps/assets/chill-guy.png" %}" alt="">
+    </div>
     </div>
     <div class="line">
       <div class="line__inner">
@@ -128,6 +134,176 @@
         <h2 class="block-bar__title title">Популярные художники</h2>
         <a href="#" class="block-bar__button button">Смотреть все</a>
       </div>
+      <div class="artists-block__slider slider responsive">
+        <div class="artists-block__item">
+          <a class="artists-block__cover" href="#">
+            <img src="{% static "deps/assets/chill-guy.png" %}" alt="">
+          </a>
+          <div class="artists-block__info">
+            <a class="artists-block__info-picture" href="#">
+              <img src="{% static "deps/assets/profile.jpg" %}" alt="">
+            </a>
+            <a class="artists-block__title" href="#">PrajaktaRao</a>
+            <a class="artists-block__button button" href="#">Перейти</a>
+          </div>
+        </div>
+        <div class="artists-block__item">
+          <a class="artists-block__cover" href="#">
+            <img src="{% static "deps/assets/chill-guy.png" %}" alt="">
+          </a>
+          <div class="artists-block__info">
+            <a class="artists-block__info-picture" href="#">
+              <img src="{% static "deps/assets/profile.jpg" %}" alt="">
+            </a>
+            <a class="artists-block__title" href="#">PrajaktaRao</a>
+            <a class="artists-block__button button" href="#">Перейти</a>
+          </div>
+        </div>
+        <div class="artists-block__item">
+          <a class="artists-block__cover" href="#">
+            <img src="{% static "deps/assets/chill-guy.png" %}" alt="">
+          </a>
+          <div class="artists-block__info">
+            <a class="artists-block__info-picture" href="#">
+              <img src="{% static "deps/assets/profile.jpg" %}" alt="">
+            </a>
+            <a class="artists-block__title" href="#">PrajaktaRao</a>
+            <a class="artists-block__button button" href="#">Перейти</a>
+          </div>
+        </div>
+        <div class="artists-block__item">
+          <a class="artists-block__cover" href="#">
+            <img src="{% static "deps/assets/chill-guy.png" %}" alt="">
+          </a>
+          <div class="artists-block__info">
+            <a class="artists-block__info-picture" href="#">
+              <img src="{% static "deps/assets/profile.jpg" %}" alt="">
+            </a>
+            <a class="artists-block__title" href="#">PrajaktaRao</a>
+            <a class="artists-block__button button" href="#">Перейти</a>
+          </div>
+        </div>
+        <div class="artists-block__item">
+          <a class="artists-block__cover" href="#">
+            <img src="{% static "deps/assets/chill-guy.png" %}" alt="">
+          </a>
+          <div class="artists-block__info">
+            <a class="artists-block__info-picture" href="#">
+              <img src="{% static "deps/assets/profile.jpg" %}" alt="">
+            </a>
+            <a class="artists-block__title" href="#">PrajaktaRao</a>
+            <a class="artists-block__button" href="#">Перейти</a>
+          </div>
+        </div>
+        <div class="artists-block__item">
+          <a class="artists-block__cover" href="#">
+            <img src="{% static "deps/assets/chill-guy.png" %}" alt="">
+          </a>
+          <div class="artists-block__info">
+            <a class="artists-block__info-picture" href="#">
+              <img src="{% static "deps/assets/profile.jpg" %}" alt="">
+            </a>
+            <a class="artists-block__title" href="#">PrajaktaRao</a>
+            <a class="artists-block__button" href="#">Перейти</a>
+          </div>
+        </div>
+        <div class="artists-block__item">
+          <a class="artists-block__cover" href="#">
+            <img src="{% static "deps/assets/chill-guy.png" %}" alt="">
+          </a>
+          <div class="artists-block__info">
+            <a class="artists-block__info-picture" href="#">
+              <img src="{% static "deps/assets/profile.jpg" %}" alt="">
+            </a>
+            <a class="artists-block__title" href="#">PrajaktaRao</a>
+            <a class="artists-block__button" href="#">Перейти</a>
+          </div>
+        </div>
+        <div class="artists-block__item">
+          <a class="artists-block__cover" href="#">
+            <img src="{% static "deps/assets/chill-guy.png" %}" alt="">
+          </a>
+          <div class="artists-block__info">
+            <a class="artists-block__info-picture" href="#">
+              <img src="{% static "deps/assets/profile.jpg" %}" alt="">
+            </a>
+            <a class="artists-block__title" href="#">PrajaktaRao</a>
+            <a class="artists-block__button" href="#">Перейти</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="markets-block">
+    <div class="content">
+      <div class="block-bar">
+        <h2 class="block-bar__title title">Предстоящие арт-маркеты</h2>
+        <a href="#" class="block-bar__button button">Смотреть все</a>
+      </div>
+      <ul class="markets-block__list">
+        <li class="markets-block__item">
+          <a href="#" class="markets-block__cover">
+            <img src="{% static "deps/assets/profile.jpg" %}" alt="">
+          </a>
+          <h4 class="markets-block__title">Арт-маркет “Заря”</h4>
+          <p class="markets-block__info">Москва | 11.05.2025</p>
+        </li>
+        <li class="markets-block__item">
+          <a href="#" class="markets-block__cover">
+            <img src="{% static "deps/assets/profile.jpg" %}" alt="">
+          </a>
+          <h4 class="markets-block__title">Арт-маркет “Заря”</h4>
+          <p class="markets-block__info">Москва | 11.05.2025</p>
+        </li>
+        <li class="markets-block__item">
+          <a href="#" class="markets-block__cover">
+            <img src="{% static "deps/assets/profile.jpg" %}" alt="">
+          </a>
+          <h4 class="markets-block__title">Арт-маркет “Заря”</h4>
+          <p class="markets-block__info">Москва | 11.05.2025</p>
+        </li>
+      </ul>
     </div>
   </div>
 {% endblock content %}
+
+{% block script %}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script>
+$(".responsive").slick({
+  dots: true,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+</script>
+
+{% endblock script %}

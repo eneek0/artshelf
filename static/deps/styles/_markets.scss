@@ -1,0 +1,46 @@
+.markets-block {
+    margin-top: 80px;
+    &__list {
+        display: flex; 
+        justify-content: space-between;
+        flex-wrap: wrap; 
+        gap: 20px; 
+        list-style: none;
+        padding: 0;
+    }
+    &__item {
+        flex: 1; 
+        width: 366px;
+        box-sizing: border-box; 
+    }
+    &__cover {
+        img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        border-radius: 15px; 
+        box-shadow: 0 4px 5px rgba(0, 0, 0, .25);
+        }
+    }
+    &__title {
+        font-size: 16px;
+        font-weight: 500;
+        margin: 20px 0px 0px 5px;
+    }
+    &__info {
+        color: #545454;
+        font-size: 14px;
+        margin: 10px 0 0 5px;
+    }
+}
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .markets-block__list {
+        flex-direction: column; /* Переводим карточки в колонку на мобильных */
+        align-items: center; /* Центрируем карточки по горизонтали */
+    }
+    .markets-block__item {
+        min-width: unset; /* Убираем минимальную ширину карточки */
+        width: 100%; /* Карточки занимают всю доступную ширину */
+    }
+}

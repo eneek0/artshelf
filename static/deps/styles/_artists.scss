@@ -1,3 +1,63 @@
 .artists-block {
   margin-top: 64px;
+  &__item {
+    width: 270px;
+    height: 365px !important;
+    background-color: #fff;
+    border-radius: 25px 25px 0 0;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, .25);
+    margin-right: 20px;
+  }
+  &__cover {
+    display: block;
+    height: 215px;
+    border-radius: 25px 25px 0 0;
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__info {
+    height: 150px;
+    background-color: #fff;
+    text-align: center;
+    padding-top: 50px;
+    position: relative;
+  }
+  &__info-picture {
+    position: absolute;
+    top: -39px; /* половина высоты аватарки */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 78px;
+    height: 77px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #F3CEFE;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__title {
+    display: block;
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+  }
+  &__button {
+    margin-top: 15px;
+    display: inline-block;
+  }
+}
+
+.artists-block__item:last-child {
+  margin-right: 0;
 }

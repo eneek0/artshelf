@@ -80,7 +80,112 @@
 .artists-block {
   margin-top: 64px;
 }
+.artists-block__item {
+  width: 270px;
+  height: 365px !important;
+  background-color: #fff;
+  border-radius: 25px 25px 0 0;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25);
+  margin-right: 20px;
+}
+.artists-block__cover {
+  display: block;
+  height: 215px;
+  border-radius: 25px 25px 0 0;
+  overflow: hidden;
+}
+.artists-block__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.artists-block__info {
+  height: 150px;
+  background-color: #fff;
+  text-align: center;
+  padding-top: 50px;
+  position: relative;
+}
+.artists-block__info-picture {
+  position: absolute;
+  top: -39px; /* половина высоты аватарки */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 78px;
+  height: 77px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #F3CEFE;
+}
+.artists-block__info-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.artists-block__title {
+  display: block;
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+}
+.artists-block__button {
+  margin-top: 15px;
+  display: inline-block;
+}
 
+.artists-block__item:last-child {
+  margin-right: 0;
+}
+
+.markets-block {
+  margin-top: 80px;
+}
+.markets-block__list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+.markets-block__item {
+  flex: 1;
+  width: 366px;
+  box-sizing: border-box;
+}
+.markets-block__cover img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25);
+}
+.markets-block__title {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 20px 0px 0px 5px;
+}
+.markets-block__info {
+  color: #545454;
+  font-size: 14px;
+  margin: 10px 0 0 5px;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .markets-block__list {
+    flex-direction: column; /* Переводим карточки в колонку на мобильных */
+    align-items: center; /* Центрируем карточки по горизонтали */
+  }
+  .markets-block__item {
+    min-width: unset; /* Убираем минимальную ширину карточки */
+    width: 100%; /* Карточки занимают всю доступную ширину */
+  }
+}
 * {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
@@ -100,7 +205,7 @@ body {
 .content {
   margin: 0 auto;
   display: block;
-  width: 1000px;
+  width: 1140px;
 }
 
 .material-symbols-outlined {
@@ -274,13 +379,18 @@ body {
   position: relative;
 }
 .hero-block__cover {
+  position: absolute;
   right: 0;
-  height: 400px;
+  height: 399px;
+  width: 45vw; /* Можно варьировать ширину */
+  overflow: hidden;
+  pointer-events: none;
+}
+.hero-block__cover img {
   width: 100%;
-  min-width: 250px;
-  max-width: 700px;
-  background: url("../assets/chill-guy.png") no-repeat;
-  background-size: cover;
+  height: 100%;
+  border-radius: 218px 0 0 218px;
+  object-fit: cover;
 }
 
 @keyframes hero-animation {
@@ -553,6 +663,21 @@ hr {
 .product-favorite-btn:hover {
   background-color: #B979CB;
   color: #FFF;
+  transition: color 0.5s ease;
+}
+
+.footer {
+  background: #FFF;
+  width: 100%;
+  z-index: 99999;
+  margin-top: 80px;
+}
+.footer__container {
+  height: 200px;
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */
