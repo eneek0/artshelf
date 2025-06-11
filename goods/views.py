@@ -28,6 +28,7 @@ from goods.models import Categories  # если у тебя отдельная �
 
 def catalog(request):
     page = request.GET.get('page', 1) 
+    order_by = request.GET.get('order_by', None) 
 
     category_ids = request.GET.getlist('categories')  # получаем id выбранных категорий
     if category_ids:
@@ -35,9 +36,12 @@ def catalog(request):
     else:
         products = Products.objects.all()
 
+    if order_by and order_by != "default":
+        products = products.order_by(order_by)
+
     categories = Categories.objects.all()  # чтобы отрисовать список в шаблоне
 
-    paginator = Paginator(products, 4)
+    paginator = Paginator(products, 40)
     current_page = paginator.page(int(page))
 
     context = {
