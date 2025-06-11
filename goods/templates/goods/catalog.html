@@ -130,7 +130,11 @@
           </a>
           <div class="card__info">
             <div class="card__content">
-              <p class="card__title">{{ product.title }}</p>
+              <p class="card__title">
+                {% autoescape off %}
+                {% if product.headline %}{{product.headline}}{% else %}{{ product.title }}{% endif %}
+                {% endautoescape %}
+              </p>
               <a class="card__username" href="#">@username</a>
             </div>
             <div class="card__price">{{ product.price }}₽</div>
