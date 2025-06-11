@@ -24,15 +24,19 @@ from urllib import request
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from goods.models import Products
-from goods.models import Categories  # если у тебя отдельная модель категорий
+from goods.models import Categories
+from goods.utils import q_search  # если у тебя отдельная модель категорий
 
 def catalog(request):
     page = request.GET.get('page', 1) 
     order_by = request.GET.get('order_by', None) 
+    query = request.GET.get('q', None) 
 
     category_ids = request.GET.getlist('categories')  # получаем id выбранных категорий
     if category_ids:
         products = Products.objects.filter(category__id__in=category_ids).distinct()
+    elif query:
+        products = q_search(query)
     else:
         products = Products.objects.all()
 

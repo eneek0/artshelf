@@ -42,7 +42,9 @@
       <div class="header__item header__actions">
         <div class="search-bar">
           <span class="search-bar__icon material-symbols-outlined">search</span>
-          <input type="search" class="search-bar__input" placeholder="Поиск">
+          <form role="search" action="{% url "catalog:search" %}" method="get">
+            <input type="search" class="search-bar__input" aria-label="Search" placeholder="Поиск" name="q">
+          </form>
           <div class="search-bar__filters">
             <button class="search-bar__filters-item active">Каталог</button>
             <button class="search-bar__filters-item">Художники</button>

@@ -41,41 +41,48 @@
         <button onclick="toggleMenu()" class="filters-bar__action active">
           <span class="filters-bar__icon material-symbols-outlined">filter_list</span> Фильтры
         </button>
-        {% comment %} <button class="filters-bar__action filters-bar__action--transparent">
-          Новое <span class="filters-bar__icon material-symbols-outlined">keyboard_arrow_down</span>
-        </button> {% endcomment %}
-        <form action="{% url 'catalog:index' %}" method="get" class="dropdown" id="sortingForm">
-          <button class="filters-bar__action filters-bar__action--transparent" type="button">
-            Сортировка <span class="filters-bar__icon material-symbols-outlined">keyboard_arrow_down</span>
-          </button>
-          <div class="dropdown-content">
-            <div class="dropdown__item">
-              <input type="radio" name="order_by" value="default" id="sortingradio1"
-                {% if not request.GET.order_by or request.GET.order_by == 'default' %}checked{% endif %}>
-              <label for="sortingradio1">По умолчанию</label>
-            </div>
-            <div class="dropdown__item">
-              <input type="radio" name="order_by" value="new" id="sortingradio2"
-                {% if request.GET.order_by == 'new' %}checked{% endif %}>
-              <label for="sortingradio2">Новые</label>
-            </div>
-            <div class="dropdown__item">
-              <input type="radio" name="order_by" value="price" id="sortingradio3"
-                {% if request.GET.order_by == 'price' %}checked{% endif %}>
-              <label for="sortingradio3">От дешевых к дорогим</label>
-            </div>
-            <div class="dropdown__item">
-              <input type="radio" name="order_by" value="-price" id="sortingradio4"
-                {% if request.GET.order_by == '-price' %}checked{% endif %}>
-              <label for="sortingradio4">От дорогих к дешевым</label>
+        <form action=" {% if request.GET.q %}{% url "catalog:search" %}{% else %}{% url 'catalog:index' %}{% endif %}" method="get" id="sortingForm">
+          <div class="dropdown">
+            <button class="filters-bar__action filters-bar__action--transparent" type="button">
+              Сортировка <span class="filters-bar__icon material-symbols-outlined">keyboard_arrow_down</span>
+            </button>
+            {% for key, value in request.GET.items %}
+              {% if key != 'order_by' and key != 'categories' %}
+                <input type="hidden" name="{{ key }}" value="{{ value }}">
+              {% endif %}
+            {% endfor %}
+
+            {% if request.GET.q %}
+            <input type="hidden" name="q" value="{{ request.GET.q }}">
+            {% endif %}
+
+            <div class="dropdown-content">
+              <div class="dropdown__item">
+                <input type="radio" name="order_by" value="default" id="sortingradio1"
+                  {% if not request.GET.order_by or request.GET.order_by == 'default' %}checked{% endif %}>
+                <label for="sortingradio1">По умолчанию</label>
+              </div>
+              <div class="dropdown__item">
+                <input type="radio" name="order_by" value="new" id="sortingradio2"
+                  {% if request.GET.order_by == 'new' %}checked{% endif %}>
+                <label for="sortingradio2">Новые</label>
+              </div>
+              <div class="dropdown__item">
+                <input type="radio" name="order_by" value="price" id="sortingradio3"
+                  {% if request.GET.order_by == 'price' %}checked{% endif %}>
+                <label for="sortingradio3">От дешевых к дорогим</label>
+              </div>
+              <div class="dropdown__item">
+                <input type="radio" name="order_by" value="-price" id="sortingradio4"
+                  {% if request.GET.order_by == '-price' %}checked{% endif %}>
+                <label for="sortingradio4">От дорогих к дешевым</label>
+              </div>
             </div>
           </div>
-        </form>
 
       </div>
       <aside class="filter-menu" id="filterMenu">
         <div class="filter-menu__scroll">
-          <form method="get" action="">
           <div class="filter-menu__section">
             <h3 class="filter-menu__title">Тип продукции</h3>
             <ul class="filter-menu__categories">
@@ -107,7 +114,7 @@
             </label>
           </div>
           <button type="submit" class="button">Применить</button>
-          </form>
+        </form>
         </div>
       </aside>
       <div class="goods-block__list">
@@ -175,11 +182,11 @@
       }
     });
 
-    // JS для автоотправки формы при выборе радиокнопки
-    document.querySelectorAll('input[name="order_by"]').forEach(function(radio) {
-      radio.addEventListener('change', function() {
-        document.getElementById('sortingForm').submit();
+    // Автоотправка формы сортировки
+      document.querySelectorAll('input[name="order_by"]').forEach(function(radio) {
+        radio.addEventListener('change', function() {
+          document.getElementById('sortingForm').submit();
+        });
       });
-    });
   </script>
 {% endblock content %}
