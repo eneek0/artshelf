@@ -501,7 +501,18 @@ hr {
     color: #FFF;
     transition: color 0.5s ease;
   }
+  &:active {
+    background-color: #B979CB;
+    color: #FFF;
+  }
 }
+
+.product-favorite-btn.active {
+  background-color: #B979CB;
+  color: #FFF;
+  border-color: #B979CB;
+}
+
 
 .footer {
   background: #FFF;

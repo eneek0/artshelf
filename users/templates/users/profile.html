@@ -10,14 +10,14 @@
         <div class="profile__container">
             <div class="profile__info">
                 <img src="{% static "deps/assets/profile.jpg" %}" alt="" class="profile__icon">
-                <h3 class="profile__username">{{user.username}}</h3>
-                {% if user.description %}
-                <p class="profile__description">{{user.description}}</p>
+                <h3 class="profile__username">{{profile_user.username}}</h3>
+                {% if profile_user.description %}
+                <p class="profile__description">{{profile_user.description}}</p>
                 {% endif %}
-                {% if user.city %}
-                <p class="profile__description"><span class="material-symbols-outlined">location_on</span>{{user.city}}</p>
+                {% if profile_user.city %}
+                <p class="profile__description"><span class="material-symbols-outlined">location_on</span>{{profile_user.city}}</p>
                 {% endif %}
-                <p class="profile__description"><span class="material-symbols-outlined">calendar_month</span>Аккаунт создан: {{user.date_joined|date:"d.m.Y"}}</p>
+                <p class="profile__description"><span class="material-symbols-outlined">calendar_month</span>Аккаунт создан: {{profile_user.date_joined|date:"d.m.Y"}}</p>
             </div>
             <div class="profile__goods">
                 <div class="profile__goods-buttons">
@@ -31,7 +31,7 @@
                     </ul>
                     <button class="button">Подписаться</button>
                 </div>
-                <div class="profile__goods-block__list">
+                <div class="profile__goods-block__list" id="publications-block">
                     {% if user_products %}
                     {% for product in user_products %}
                     <div class="card">
@@ -55,6 +55,30 @@
                     <p class="no-products">У пользователя пока нет товаров.</p>
                     {% endif %}
                 </div>
+                <div class="profile__goods-block__list hidden" id="favorites-block">
+                    {% if favorite_products %}
+                        {% for product in favorite_products %}
+                            <div class="card">
+                        <a class="card__cover" href="{% url "catalog:product" product.slug %}">
+                            {% if product.image %}
+                            <img src="{{ product.image.url }}" class="card__image-cover" alt="{{ product.title }}" />
+                            {% else %}
+                            <img src="{% static "deps/assets/image_not_found.png" %}" class="card__image-cover" />
+                            {% endif %}
+                        </a>
+                        <div class="card__info">
+                            <div class="card__content">
+                                <p class="card__title">{{ product.title }}</p>
+                                <a class="card__username" href="#">@{{ product.user.username }}</a>
+                            </div>
+                            <div class="card__price">{{ product.price }}₽</div>
+                        </div>
+                    </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="no-products">Избранных товаров пока нет.</p>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
@@ -65,14 +89,24 @@
 {% block script %}
 <script>
     const switchButtons = document.querySelectorAll('.profile__switch-button');
-    
+    const publicationsBlock = document.getElementById('publications-block');
+    const favoritesBlock = document.getElementById('favorites-block');
+
     switchButtons.forEach(button => {
         button.addEventListener('click', () => {
-        switchButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        // Здесь можешь добавить код для замены товаров (например, скрыть/показать блоки)
+            switchButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            if (button.textContent.trim() === 'Публикации') {
+                publicationsBlock.classList.remove('hidden');
+                favoritesBlock.classList.add('hidden');
+            } else {
+                publicationsBlock.classList.add('hidden');
+                favoritesBlock.classList.remove('hidden');
+            }
         });
     });
+
 </script>
 
 {% endblock script %}

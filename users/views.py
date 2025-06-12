@@ -5,6 +5,10 @@ from django.contrib.auth import authenticate, login as auth_login
 from users.forms import UserLoginForm, UserRegistrationForm
 from django.urls import reverse, reverse_lazy
 from goods.models import Products 
+from django.shortcuts import render, get_object_or_404
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 # Create your views here.
 def login(request):
@@ -62,9 +66,23 @@ def logout(request):
 def profile_view(request):
     print('Текущий пользователь:', request.user.username)
     print('ID пользователя:', request.user.id)
+
     user_products = Products.objects.filter(user=request.user)
     print('Количество товаров:', user_products.count())
 
+    # Избранные товары текущего пользователя
+    favorite_products = Products.objects.filter(favorited_by__user=request.user)
+
     return render(request, 'users/profile.html', {
+        'user_products': user_products,
+        'favorite_products': favorite_products,
+        'profile_user': request.user  # чтобы шаблон отображал текущего пользователя
+    })
+
+def public_profile_view(request, username):
+    profile_user = get_object_or_404(User, username=username)
+    user_products = Products.objects.filter(user=profile_user)
+    return render(request, 'users/profile.html', {
+        'profile_user': profile_user,
         'user_products': user_products
     })

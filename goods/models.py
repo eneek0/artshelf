@@ -56,3 +56,31 @@ class Products(models.Model):
 
     def __str__(self):
         return self.title
+
+class Favorite(models.Model):
+    user = models.ForeignKey(
+        get_user_model(), 
+        on_delete=models.CASCADE, 
+        related_name='favorites', 
+        verbose_name='Пользователь',
+        null=True,  # временно разрешаем пустые значения
+        blank=True
+    )
+    product = models.ForeignKey(
+        Products, 
+        on_delete=models.CASCADE, 
+        related_name='favorited_by', 
+        verbose_name='Продукт',
+        null=True,  # временно разрешаем пустые значения
+        blank=True
+    )
+    added_at = models.DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name='Дата добавления')
+
+    class Meta:
+        db_table = 'favorite'
+        unique_together = ('user', 'product')
+        verbose_name = 'Избранное'
+        verbose_name_plural = 'Избранные товары'
+
+    def __str__(self):
+        return f"{self.user.username} → {self.product.title}"

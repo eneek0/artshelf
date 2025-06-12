@@ -1,31 +1,13 @@
-# from email.mime import image
-# from django.shortcuts import render
-
-# from goods.models import Products
-
-# # Create your views here.
-# def catalog(request):
-
-
-#     context: dict[str,] = {
-#     }
-#     return render(request, 'goods/catalog.html', context)
-
-def product(request, product_slug):
-    product: Products = Products.objects.get(slug=product_slug)
-
-    context: dict[str, Products] = {
-        'product': product
-    }
-    return render(request, 'goods/product.html', context=context)
-
-
 from urllib import request
 from django.core.paginator import Paginator
-from django.shortcuts import render
-from goods.models import Products
+from django.shortcuts import get_object_or_404, render
+from goods.models import Products, Favorite
 from goods.models import Categories
 from goods.utils import q_search  # если у тебя отдельная модель категорий
+from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from django.views.decorators.http import require_POST
+
 
 def catalog(request):
     page = request.GET.get('page', 1) 
@@ -54,3 +36,33 @@ def catalog(request):
         'selected_categories': list(map(int, category_ids)),  # для галочек в чекбоксах
     }
     return render(request, 'goods/catalog.html', context)
+
+
+def product(request, product_slug):
+    product = get_object_or_404(Products, slug=product_slug)
+    favorite_products = []
+
+    if request.user.is_authenticated:
+        favorite_products = Favorite.objects.filter(user=request.user).values_list('product_id', flat=True)
+
+    return render(request, 'goods/product.html', {
+        'product': product,
+        'favorite_products': favorite_products,
+    })
+
+
+@login_required
+@require_POST
+def toggle_favorite(request, product_slug):
+    try:
+        product = Products.objects.get(slug=product_slug)
+    except Products.DoesNotExist:
+        return JsonResponse({'error': 'Товар не найден'}, status=404)
+
+    favorite, created = Favorite.objects.get_or_create(user=request.user, product=product)
+
+    if not created:
+        favorite.delete()
+        return JsonResponse({'status': 'removed'})
+    else:
+        return JsonResponse({'status': 'added'})

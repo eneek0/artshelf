@@ -14,7 +14,7 @@
                 <div class="product-page__gallery">
                     <div class="product-page__gallery-wrapper">
                         <img src="{{ product.image.url }}" alt="#" class="product-page__image-main"/>
-                        <button class="product-favorite-btn">
+                        <button class="product-favorite-btn {% if product.id in favorite_products %}active{% endif %}" data-product-slug="{{ product.slug }}">
                             <span class="material-symbols-outlined product-favorite-btn__icon">favorite</span>
                         </button>
                     </div>
@@ -84,3 +84,34 @@
 </main>
 
 {% endblock content %}
+
+{% block script %}
+
+<script>
+    document.querySelectorAll('.product-favorite-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const productSlug = this.dataset.productSlug;
+            const icon = this.querySelector('.product-favorite-btn__icon');
+
+            fetch(`/catalog/product/${productSlug}/toggle-favorite/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'added') {
+                    this.classList.add('active');
+                } else if (data.status === 'removed') {
+                    this.classList.remove('active');
+                }
+            });
+        });
+    });
+</script>
+
+
+{% endblock script %}
+
