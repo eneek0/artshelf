@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% load static %}
-{% load goods_tags %}
 
 {% block content %}
 <div class="profile">
@@ -33,25 +32,28 @@
                     <button class="button">Подписаться</button>
                 </div>
                 <div class="profile__goods-block__list">
-                    {% goods as goods %}
-                    {% for product in goods %}
+                    {% if user_products %}
+                    {% for product in user_products %}
                     <div class="card">
-                    <a class="card__cover" href="{% url "catalog:product" product.slug %}">
-                        {% if product.image %}
-                        <img src="{{ product.image.url }}" class="card__image-cover" alt="{{ product.title }}" />
-                        {% else %}
-                        <img src="{% static "deps/assets/image_not_found.png" %}" class="card__image-cover" />
-                        {% endif %}
-                    </a>
-                    <div class="card__info">
-                        <div class="card__content">
-                        <p class="card__title">{{ product.title }}</p>
-                        <a class="card__username" href="#">@username</a>
+                        <a class="card__cover" href="{% url "catalog:product" product.slug %}">
+                            {% if product.image %}
+                            <img src="{{ product.image.url }}" class="card__image-cover" alt="{{ product.title }}" />
+                            {% else %}
+                            <img src="{% static "deps/assets/image_not_found.png" %}" class="card__image-cover" />
+                            {% endif %}
+                        </a>
+                        <div class="card__info">
+                            <div class="card__content">
+                                <p class="card__title">{{ product.title }}</p>
+                                <a class="card__username" href="#">@{{ product.user.username }}</a>
+                            </div>
+                            <div class="card__price">{{ product.price }}₽</div>
                         </div>
-                        <div class="card__price">{{ product.price }}₽</div>
-                    </div>
                     </div>
                     {% endfor %}
+                    {% else %}
+                    <p class="no-products">У пользователя пока нет товаров.</p>
+                    {% endif %}
                 </div>
             </div>
         </div>

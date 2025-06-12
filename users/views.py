@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
 from users.forms import UserLoginForm, UserRegistrationForm
 from django.urls import reverse, reverse_lazy
+from goods.models import Products 
 
 # Create your views here.
 def login(request):
@@ -50,3 +51,20 @@ def logout(request):
     context = {
     }
     return redirect(reverse('main:index'))
+
+# def profile_view(request):
+#     user = request.user
+#     user_products = Products.objects.filter(user=user)
+#     return render(request, 'users/profile.html', {
+#         'user_products': user_products
+#     })
+
+def profile_view(request):
+    print('Текущий пользователь:', request.user.username)
+    print('ID пользователя:', request.user.id)
+    user_products = Products.objects.filter(user=request.user)
+    print('Количество товаров:', user_products.count())
+
+    return render(request, 'users/profile.html', {
+        'user_products': user_products
+    })
