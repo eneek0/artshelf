@@ -54,9 +54,31 @@
         <a href="#" class="header__button header__button--circle">
           <span class="material-symbols-outlined">favorite</span>
         </a>
-        <a href="#" class="header__button header__button--circle">
-          <span class="material-symbols-outlined">account_circle</span>
-        </a>
+        {% if not user.is_authenticated %}
+        <div class="account-menu">
+          <a href="{% url "user:login" %}" class="header__button header__button--circle">
+            <span class="material-symbols-outlined">account_circle</span>
+          </a>
+        {% elif user.is_admin or user.is_staff %}
+        <div class="account-menu">
+          <a href="#" class="header__button header__button--circle">
+            <span class="material-symbols-outlined">account_circle</span>
+          </a>
+          <div class="menu-content">
+            <a href="{% url 'user:logout' %}">Выйти</a>
+            <a href="{% url 'admin:index' %}">Админ панель</a>
+          </div>
+        </div>
+        {% else %}
+        <div class="account-menu">
+          <a href="#" class="header__button header__button--circle">
+            <span class="material-symbols-outlined">account_circle</span>
+          </a>
+          <div class="menu-content">
+            <a href="{% url 'user:logout' %}">Выйти</a>
+          </div>
+        </div>
+        {% endif %}
       </div>
     </div>
   </header>
