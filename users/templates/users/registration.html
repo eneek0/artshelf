@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<body>
+  <div class="register-container" style="padding-top: 150px;">
+    <h2>Регистрация</h2>
+    <form action="/register" method="post">
+      <label for="email">Введите email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="username">Придумайте имя пользователя:</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="password">Введите пароль:</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="confirm-password">Повторите пароль:</label>
+      <input type="password" id="confirm-password" name="confirm-password" required>
+
+      <div class="checkbox">
+        <input type="checkbox" id="privacy" name="privacy" required>
+        <label for="privacy">Я согласен с политикой обработки персональных данных и политикой конфиденциальности.</label>
+      </div>
+
+      <button type="submit">Создать аккаунт</button>
+    </form>
+
+    <div class="login-link">
+      Уже есть аккаунт? <a href="#">Войти</a>
+    </div>
+  </div>
+</body>
+{% endblock content %}
