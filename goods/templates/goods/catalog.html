@@ -135,7 +135,7 @@
                 {% if product.headline %}{{product.headline}}{% else %}{{ product.title }}{% endif %}
                 {% endautoescape %}
               </p>
-              <a class="card__username" href="#">@username</a>
+              <a class="card__username" href="#">@{{product.user.username}}</a>
             </div>
             <div class="card__price">{{ product.price }}₽</div>
           </div>

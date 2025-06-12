@@ -1,2 +1,77 @@
 {% extends "base.html" %}
 {% load static %}
+{% load goods_tags %}
+
+{% block content %}
+<div class="profile">
+    <div class="profile__banner">
+        <img src="{% static "deps/assets/chill-guy.png" %}" alt="">
+    </div>
+    <div class="content">
+        <div class="profile__container">
+            <div class="profile__info">
+                <img src="{% static "deps/assets/profile.jpg" %}" alt="" class="profile__icon">
+                <h3 class="profile__username">{{user.username}}</h3>
+                {% if user.description %}
+                <p class="profile__description">{{user.description}}</p>
+                {% endif %}
+                {% if user.city %}
+                <p class="profile__description"><span class="material-symbols-outlined">location_on</span>{{user.city}}</p>
+                {% endif %}
+                <p class="profile__description"><span class="material-symbols-outlined">calendar_month</span>Аккаунт создан: {{user.date_joined|date:"d.m.Y"}}</p>
+            </div>
+            <div class="profile__goods">
+                <div class="profile__goods-buttons">
+                    <ul class="profile__goods-buttons-switch">
+                        <li class="profile__goods-buttons-switch-item">
+                            <button class="profile__switch-button active">Публикации</button>
+                        </li>
+                        <li class="profile__goods-buttons-switch-item">
+                            <button class="profile__switch-button">Избранное</button>
+                        </li>
+                    </ul>
+                    <button class="button">Подписаться</button>
+                </div>
+                <div class="profile__goods-block__list">
+                    {% goods as goods %}
+                    {% for product in goods %}
+                    <div class="card">
+                    <a class="card__cover" href="{% url "catalog:product" product.slug %}">
+                        {% if product.image %}
+                        <img src="{{ product.image.url }}" class="card__image-cover" alt="{{ product.title }}" />
+                        {% else %}
+                        <img src="{% static "deps/assets/image_not_found.png" %}" class="card__image-cover" />
+                        {% endif %}
+                    </a>
+                    <div class="card__info">
+                        <div class="card__content">
+                        <p class="card__title">{{ product.title }}</p>
+                        <a class="card__username" href="#">@username</a>
+                        </div>
+                        <div class="card__price">{{ product.price }}₽</div>
+                    </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block script %}
+<script>
+    const switchButtons = document.querySelectorAll('.profile__switch-button');
+    
+    switchButtons.forEach(button => {
+        button.addEventListener('click', () => {
+        switchButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        // Здесь можешь добавить код для замены товаров (например, скрыть/показать блоки)
+        });
+    });
+</script>
+
+{% endblock script %}
+

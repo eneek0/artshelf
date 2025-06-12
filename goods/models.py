@@ -2,6 +2,7 @@ from pyexpat import model
 from unicodedata import category
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth import get_user_model
 
 # Create your models here.
 class Categories(models.Model):
@@ -37,6 +38,15 @@ class Products(models.Model):
     created_at = models.DateTimeField(default=timezone.now, verbose_name="Дата публикации")
     is_available = models.BooleanField(default=True, verbose_name="В наличии")
     tags = models.ManyToManyField(Tags, blank=True, verbose_name="Тэги")
+
+    user = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+        related_name='products',
+        verbose_name='Пользователь',
+        null=True,  # временно разрешаем пустые значения
+        blank=True
+    )
 
     class Meta:
         db_table: str = 'product'
