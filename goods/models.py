@@ -38,6 +38,8 @@ class Products(models.Model):
     created_at = models.DateTimeField(default=timezone.now, verbose_name="Дата публикации")
     is_available = models.BooleanField(default=True, verbose_name="В наличии")
     tags = models.ManyToManyField(Tags, blank=True, verbose_name="Тэги")
+    size = models.CharField(max_length=50, unique=False, blank=True, verbose_name="Размер")
+    material = models.CharField(max_length=150, blank=True, unique=False, verbose_name="Материал")
 
     user = models.ForeignKey(
         get_user_model(),

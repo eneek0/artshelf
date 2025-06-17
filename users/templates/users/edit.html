@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="profile">
+    <div class="profile__banner">
+        <img src="{% static "deps/assets/chill-guy.png" %}" alt="">
+    </div>
+    <div class="content">
+        <div class="profile__container">
+            <div class="profile__info">
+                <form action="{% url "users:profile" %}" method="post">
+                    <div>
+                        <img src="{% static "deps/assets/profile.jpg" %}" alt="Аватар пользователя" class="profile__icon">
+                        <input type="file", id="id_image", name="image", accept="image/*">
+                    </div>
+                    <div>
+                        <label for="id_username">Имя</label>
+                        <input type="text" id="id_username" 
+                        value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
+                        name="username" required
+                        placeholder="Введите ваше имя пользователя">
+                        {% if form.username.errors %}
+                        <div class="alert alert-danger alert-dismissible fade show">{{form.username.errors}}</div>
+                        {% endif %}
+                    </div>
+                    {% comment %} <h3 class="profile__username">{{profile_user.username}}</h3> {% endcomment %}
+                    <div>
+                        <label for="id_description">Описание</label>
+                        <input type="text" id="id_description" 
+                        value="{% if form.description.value %}{{ form.description.value }}{% endif %}"
+                        name="description" required
+                        placeholder="Введите описание">
+                    </div>
+                    {% comment %} <p class="profile__description">{{profile_user.description}}</p> {% endcomment %}
+                    <div>
+                        <label for="id_city">Город</label>
+                        <input type="text" id="id_city" 
+                        value="{% if form.city.value %}{{ form.city.value }}{% endif %}"
+                        name="city" required
+                        placeholder="Введите ваш город">
+                    </div>
+                    <button type="submit" class="button">Сохранить</button>
+                </form>
+                {% comment %} <p class="profile__description"><span class="material-symbols-outlined">location_on</span>{{profile_user.city}}</p> {% endcomment %}
+                <p class="profile__description"><span class="material-symbols-outlined">calendar_month</span>Аккаунт создан: {{profile_user.date_joined|date:"d.m.Y"}}</p>
+            </div>
+            <div class="profile__goods">
+                <div class="profile__goods-buttons">
+                    <ul class="profile__goods-buttons-switch">
+                        <li class="profile__goods-buttons-switch-item">
+                            <button class="profile__switch-button active">Публикации</button>
+                        </li>
+                        <li class="profile__goods-buttons-switch-item">
+                            <button class="profile__switch-button">Избранное</button>
+                        </li>
+                    </ul>
+                    {% if user.is_authenticated and profile_user == request.user%}
+                    <button class="button">Редактировать профиль</button>
+                    {% else %}
+                    <button class="button">Подписаться</button>
+                    {% endif %}
+                </div>
+                <div class="profile__goods-block__list" id="publications-block">
+                    {% if user_products %}
+                    {% for product in user_products %}
+                    <div class="card">
+                        <a class="card__cover" href="{% url "catalog:product" product.slug %}">
+                            {% if product.image %}
+                            <img src="{{ product.image.url }}" class="card__image-cover" alt="{{ product.title }}" />
+                            {% else %}
+                            <img src="{% static "deps/assets/image_not_found.png" %}" class="card__image-cover" />
+                            {% endif %}
+                        </a>
+                        <div class="card__info">
+                            <div class="card__content">
+                                <p class="card__title">{{ product.title }}</p>
+                                <a class="card__username" href="#">@{{ product.user.username }}</a>
+                            </div>
+                            <div class="card__price">{{ product.price }}₽</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <p class="no-products">У пользователя пока нет товаров.</p>
+                    {% endif %}
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block script %}
+<script>
+</script>
+
+{% endblock script %}
+

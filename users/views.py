@@ -2,7 +2,7 @@ from django.contrib import auth, messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
-from users.forms import UserLoginForm, UserRegistrationForm
+from users.forms import UserLoginForm, UserRegistrationForm, ProfileForm
 from django.urls import reverse, reverse_lazy
 from goods.models import Products 
 from django.shortcuts import render, get_object_or_404
@@ -73,16 +73,33 @@ def profile_view(request):
     # Избранные товары текущего пользователя
     favorite_products = Products.objects.filter(favorited_by__user=request.user)
 
+    is_edit_mode = request.GET.get('edit') == 'true'
+
+    if request.method == 'POST':
+        form = ProfileForm(data=request.POST, instance=request.user, files=request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('user:profile')
+    else:
+        form = ProfileForm(instance=request.user)
+
     return render(request, 'users/profile.html', {
         'user_products': user_products,
         'favorite_products': favorite_products,
-        'profile_user': request.user  # чтобы шаблон отображал текущего пользователя
+        'is_own_profile': True,
+        'profile_user': request.user,  # чтобы шаблон отображал текущего пользователя
+        'form': form,
+        'edit_mode': is_edit_mode,
     })
 
 def public_profile_view(request, username):
     profile_user = get_object_or_404(User, username=username)
     user_products = Products.objects.filter(user=profile_user)
+
+    is_own_profile = request.user.is_authenticated and profile_user == request.user
+
     return render(request, 'users/profile.html', {
         'profile_user': profile_user,
-        'user_products': user_products
+        'user_products': user_products,
+        'is_own_profile': is_own_profile,
     })

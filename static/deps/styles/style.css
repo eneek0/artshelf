@@ -8,6 +8,7 @@
   color: #FFF;
   border-radius: 99em;
   padding: 15px 46px;
+  border: none;
 }
 .button:hover {
   background: #9961a8;
@@ -785,7 +786,16 @@ hr {
   max-width: 1140px;
   margin: 0 auto;
   display: flex;
-  align-items: center;
+}
+.footer__container a {
+  margin-top: 50px;
+}
+.footer__navigation {
+  display: flex;
+  flex-direction: row;
+}
+.footer__navigation-list {
+  list-style: none;
 }
 
 .disabled {

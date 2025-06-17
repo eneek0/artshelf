@@ -9,7 +9,40 @@
     <div class="content">
         <div class="profile__container">
             <div class="profile__info">
-                <img src="{% static "deps/assets/profile.jpg" %}" alt="" class="profile__icon">
+                {% if edit_mode %}
+                <form method="POST" enctype="multipart/form-data" class="profile__edit-form">
+                    {% csrf_token %}
+                    <div>
+                        {% if user.image %}
+                            <img src="{{ user.image.url }}" alt="" class="profile__icon">
+                        {% else %}
+                            <img src="{% static 'deps/assets/profile.jpg' %}" alt="" class="profile__icon">
+                        {% endif %}
+                        {{ form.avatar }}
+                        <input type="file" class="" id="id_image"
+                                    name='image'
+                                    accept="image/*">
+                    </div>
+                    <div>
+                        <label for="id_username">Имя пользователя:</label>
+                        {{ form.username }}
+                    </div>
+                    <div>
+                        <label for="id_description">Описание:</label>
+                        {{ form.description }}
+                    </div>
+                    <div>
+                        <label for="id_city">Город:</label>
+                        {{ form.city }}
+                    </div>
+                    <p class="profile__description">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        Аккаунт создан: {{ profile_user.date_joined|date:"d.m.Y" }}
+                    </p>
+                    <button type="submit" class="button">Сохранить изменения</button>
+                </form>
+                {% else %}
+                <img src="{{ user.image.url }}" alt="" class="profile__icon">
                 <h3 class="profile__username">{{profile_user.username}}</h3>
                 {% if profile_user.description %}
                 <p class="profile__description">{{profile_user.description}}</p>
@@ -18,6 +51,7 @@
                 <p class="profile__description"><span class="material-symbols-outlined">location_on</span>{{profile_user.city}}</p>
                 {% endif %}
                 <p class="profile__description"><span class="material-symbols-outlined">calendar_month</span>Аккаунт создан: {{profile_user.date_joined|date:"d.m.Y"}}</p>
+                {% endif %}
             </div>
             <div class="profile__goods">
                 <div class="profile__goods-buttons">
@@ -29,7 +63,11 @@
                             <button class="profile__switch-button">Избранное</button>
                         </li>
                     </ul>
-                    <button class="button">Подписаться</button>
+                    {% if is_own_profile %}
+                        <a href="?edit=true" class="button">Редактировать профиль</a>
+                    {% else %}
+                        <button class="button">Подписаться</button>
+                    {% endif %}
                 </div>
                 <div class="profile__goods-block__list" id="publications-block">
                     {% if user_products %}

@@ -1,9 +1,8 @@
 from urllib import request
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, render
-from goods.models import Products, Favorite
-from goods.models import Categories
-from goods.utils import q_search  # если у тебя отдельная модель категорий
+from goods.models import Products, Favorite, Categories, Tags
+from goods.utils import q_search
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
@@ -42,12 +41,15 @@ def product(request, product_slug):
     product = get_object_or_404(Products, slug=product_slug)
     favorite_products = []
 
+    tags = product.tags.all
+
     if request.user.is_authenticated:
         favorite_products = Favorite.objects.filter(user=request.user).values_list('product_id', flat=True)
 
     return render(request, 'goods/product.html', {
         'product': product,
         'favorite_products': favorite_products,
+        'tags': tags,
     })
 
 

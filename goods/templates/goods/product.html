@@ -28,11 +28,13 @@
                     </div>
                     <p class="product-page__category">{{product.category}}</p>
                     <ul class="product-page__tags">
-                        <li class="product-page__tag">красное</li>
-                        <li class="product-page__tag">милое</li>
-                        <li class="product-page__tag">стикеры</li>
-                        <li class="product-page__tag">стикерпак</li>
-                        <li class="product-page__tag">бантики</li>
+                        {% for tag in tags %}
+                        <li class="product-page__tag">{{ tag.name }}</li>
+                        {% empty %}
+                        <p class="product-page__description">
+                        У товара нет тэгов.
+                        </p>
+                        {% endfor %}
                     </ul>
 
                     {% if product.description %}
@@ -50,14 +52,14 @@
                         <li>
                             <details class="product-page__details-item">
                                 <summary class="product-page__details-title">РАЗМЕР</summary>
-                                <div class="product-page__details-content">10x15 см</div>
+                                <div class="product-page__details-content">{{ product.size }}</div>
                             </details>
                         </li>
                         <hr>
                         <li>
                             <details class="product-page__details-item">
                                 <summary class="product-page__details-title">МАТЕРИАЛ</summary>
-                                <div class="product-page__details-content">10x15 см</div>
+                                <div class="product-page__details-content">{{ product.material }}</div>
                             </details>
                         </li>
                         <hr>
