@@ -42,3 +42,10 @@ class ProfileForm(UserChangeForm):
     username = forms.CharField()
     description = forms.CharField()
     city = forms.CharField()
+
+    def __init__(self, *args, **kwargs):
+        super(ProfileForm, self).__init__(*args, **kwargs)
+        self.fields['image'].widget.attrs['class'] = 'form__input'
+        self.fields['username'].widget.attrs['class'] = 'form__input'
+        self.fields['description'].widget.attrs['class'] = 'form__input'
+        self.fields['city'].widget.attrs['class'] = 'form__input'

@@ -78,6 +78,13 @@
   font-size: 14px;
 }
 
+.goods__pagination-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
 .artists-block {
   margin-top: 64px;
 }
@@ -741,6 +748,12 @@ hr {
   width: 100%; /*устанавливаем значение 100% чтобы ссылка подчёркивалась полностью*/
 }
 
+.product-page__author-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .product-favorite-btn {
   position: absolute;
   top: 15px;
@@ -793,9 +806,25 @@ hr {
 .footer__navigation {
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
+  margin-left: 190px;
 }
 .footer__navigation-list {
   list-style: none;
+  padding: 0%;
+  margin-bottom: 35px;
+}
+.footer__navigation-list:nth-child(2) {
+  margin-left: 30px;
+}
+.footer__navigation-item {
+  margin-bottom: 10px;
+}
+.footer__navigation-item a {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+  text-decoration: none;
 }
 
 .disabled {
@@ -869,6 +898,76 @@ hr {
 
 .account-menu:hover .menu-content {
   display: block;
+}
+
+.form {
+  padding-top: 155px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("/static/deps/assets/Vector.png") no-repeat center center;
+  background-size: 100% auto;
+  min-height: 100vh;
+}
+.form__container {
+  padding: 50px 50px 120px 50px;
+  background-color: #FFF;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.form__container form {
+  width: 100%;
+}
+.form__title {
+  margin: 50px 0 110px 0;
+}
+.form__label {
+  display: none;
+}
+.form__item {
+  margin-bottom: 15px;
+  width: 100%;
+}
+.form__input {
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 25px;
+  border: 2px solid #F3CEFE;
+  border-radius: 15px;
+  background-color: #FFF;
+  box-sizing: border-box;
+}
+.form__button {
+  width: 100%;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  background-color: #B979CB;
+  color: #FFF;
+  border: none;
+  border-radius: 15px;
+  font-size: 14px;
+  margin-top: 25px;
+  cursor: pointer;
+}
+.form__link {
+  margin-top: 30px;
+}
+.form__checkbox {
+  margin-top: 20px;
+}
+
+.save-button {
+  margin-top: 15px;
+}
+
+.authors__container {
+  margin-top: 125px;
 }
 
 /*# sourceMappingURL=style.css.map */

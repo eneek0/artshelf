@@ -479,6 +479,13 @@ hr {
     }
   }
 }
+
+.product-page__author-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
 .product-favorite-btn {
   position: absolute;
   top: 15px;
@@ -530,9 +537,25 @@ hr {
   &__navigation {
     display: flex;
     flex-direction: row;
+    align-items: flex-end;
+    margin-left: 190px;
   }
   &__navigation-list {
     list-style: none;
+    padding: 0%;
+    margin-bottom: 35px;
+    &:nth-child(2) {
+      margin-left: 30px;
+    }
+  }
+  &__navigation-item {
+    margin-bottom: 10px;
+    a {
+    font-size: 16px;
+    font-weight: 400;
+    color: #000;
+    text-decoration: none;
+    }
   }
 }
 
@@ -608,3 +631,73 @@ hr {
   .account-menu:hover .menu-content {
     display: block;
   }
+
+.form {
+  padding-top: 75px+80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('/static/deps/assets/Vector.png') no-repeat center center;
+  background-size: 100% auto; // на всю ширину, а высота — пропорционально
+  min-height: 100vh;
+  &__container {
+    padding: 50px 50px 120px 50px;
+    background-color: #FFF;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, .25);
+    border-radius: 30px;
+    width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    form {
+      width: 100%;
+    }
+  }
+  &__title {
+    margin: 50px 0 110px 0;
+  }
+  &__label {
+    display: none;
+  }
+  &__item {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  &__input {
+    width: 100%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 25px;
+    border: 2px solid #F3CEFE;
+    border-radius: 15px;
+    background-color: #FFF;
+    box-sizing: border-box;
+  }
+  &__button {
+    width: 100%;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    background-color: #B979CB;
+    color: #FFF;
+    border: none;
+    border-radius: 15px;
+    font-size: 14px;
+    margin-top: 25px;
+    cursor: pointer;
+  }
+  &__link {
+    margin-top: 30px;
+  }
+  &__checkbox {
+    margin-top: 20px;
+  }
+}
+
+.save-button {
+  margin-top: 15px;
+}
+
+.authors__container {
+  margin-top: 50px+75px;
+}

@@ -1,0 +1,128 @@
+Date : 2025-06-18 21:47:44
+Directory : d:\artshelf\artshelf_project
+Total : 71 files,  3730 codes, 261 comments, 502 blanks, all 4493 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| HTML       |         10 |      1,063 |          1 |         80 |      1,144 |
+| PostCSS    |          2 |        987 |        137 |        116 |      1,240 |
+| SCSS       |          6 |        856 |         20 |         42 |        918 |
+| Python     |         47 |        795 |        103 |        261 |      1,159 |
+| JSON       |          5 |         19 |          0 |          2 |         21 |
+| JavaScript |          1 |         10 |          0 |          1 |         11 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                   |         71 |      3,730 |        261 |        502 |      4,493 |
+| . (Files)                                                                                                           |          2 |         21 |          3 |          6 |         30 |
+| artshelf                                                                                                            |          5 |        107 |         61 |         54 |        222 |
+| fixtures                                                                                                            |          2 |          2 |          0 |          0 |          2 |
+| fixtures\goods                                                                                                      |          2 |          2 |          0 |          0 |          2 |
+| goods                                                                                                               |         23 |        754 |         21 |        155 |        930 |
+| goods (Files)                                                                                                       |          9 |        229 |         12 |         61 |        302 |
+| goods\migrations                                                                                                    |          9 |        187 |          8 |         50 |        245 |
+| goods\templates                                                                                                     |          3 |        322 |          1 |         38 |        361 |
+| goods\templates\goods                                                                                               |          3 |        322 |          1 |         38 |        361 |
+| goods\templatetags                                                                                                  |          2 |         16 |          0 |          6 |         22 |
+| main                                                                                                                |          9 |        321 |          4 |         24 |        349 |
+| main (Files)                                                                                                        |          7 |         20 |          4 |         15 |         39 |
+| main\migrations                                                                                                     |          1 |          0 |          0 |          1 |          1 |
+| main\templates                                                                                                      |          1 |        301 |          0 |          8 |        309 |
+| main\templates\main                                                                                                 |          1 |        301 |          0 |          8 |        309 |
+| static                                                                                                              |         11 |      1,864 |        157 |        160 |      2,181 |
+| static\deps                                                                                                         |         11 |      1,864 |        157 |        160 |      2,181 |
+| static\deps (Files)                                                                                                 |          2 |         11 |          0 |          1 |         12 |
+| static\deps\scripts                                                                                                 |          1 |         10 |          0 |          1 |         11 |
+| static\deps\styles                                                                                                  |          8 |      1,843 |        157 |        158 |      2,158 |
+| templates                                                                                                           |          2 |        118 |          0 |          7 |        125 |
+| templates (Files)                                                                                                   |          1 |        110 |          0 |          5 |        115 |
+| templates\includes                                                                                                  |          1 |          8 |          0 |          2 |         10 |
+| users                                                                                                               |         17 |        543 |         15 |         96 |        654 |
+| users (Files)                                                                                                       |          8 |        146 |         11 |         43 |        200 |
+| users\migrations                                                                                                    |          5 |         75 |          4 |         26 |        105 |
+| users\templates                                                                                                     |          4 |        322 |          0 |         27 |        349 |
+| users\templates\users                                                                                               |          4 |        322 |          0 |         27 |        349 |
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                                            | language   | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| d:\artshelf\artshelf_project\artshelf\__init__.py                                                                   | Python     |          0 |          0 |          1 |          1 |
+| d:\artshelf\artshelf_project\artshelf\asgi.py                                                                       | Python     |          4 |          8 |          5 |         17 |
+| d:\artshelf\artshelf_project\artshelf\settings.py                                                                   | Python     |         83 |         29 |         40 |        152 |
+| d:\artshelf\artshelf_project\artshelf\urls.py                                                                       | Python     |         16 |         16 |          3 |         35 |
+| d:\artshelf\artshelf_project\artshelf\wsgi.py                                                                       | Python     |          4 |          8 |          5 |         17 |
+| d:\artshelf\artshelf_project\fixtures\goods\categories.json                                                         | JSON       |          1 |          0 |          0 |          1 |
+| d:\artshelf\artshelf_project\fixtures\goods\products.json                                                           | JSON       |          1 |          0 |          0 |          1 |
+| d:\artshelf\artshelf_project\goods\__init__.py                                                                      | Python     |          0 |          0 |          1 |          1 |
+| d:\artshelf\artshelf_project\goods\admin.py                                                                         | Python     |         10 |          3 |          5 |         18 |
+| d:\artshelf\artshelf_project\goods\apps.py                                                                          | Python     |          6 |          0 |          3 |          9 |
+| d:\artshelf\artshelf_project\goods\forms.py                                                                         | Python     |          7 |          1 |          3 |         11 |
+| d:\artshelf\artshelf_project\goods\migrations\0001_initial.py                                                       | Python     |         15 |          1 |          7 |         23 |
+| d:\artshelf\artshelf_project\goods\migrations\0002_tags_alter_categories_options_alter_categories_table_and_more.py | Python     |         44 |          1 |          6 |         51 |
+| d:\artshelf\artshelf_project\goods\migrations\0003_alter_tags_options_alter_tags_table.py                           | Python     |         15 |          1 |          6 |         22 |
+| d:\artshelf\artshelf_project\goods\migrations\0004_alter_products_options_alter_categories_name_and_more.py         | Python     |         26 |          1 |          6 |         33 |
+| d:\artshelf\artshelf_project\goods\migrations\0005_products_user.py                                                 | Python     |         15 |          1 |          6 |         22 |
+| d:\artshelf\artshelf_project\goods\migrations\0006_favorite.py                                                      | Python     |         18 |          1 |          6 |         25 |
+| d:\artshelf\artshelf_project\goods\migrations\0007_alter_favorite_options_favorite_added_at_and_more.py             | Python     |         37 |          1 |          6 |         44 |
+| d:\artshelf\artshelf_project\goods\migrations\0008_products_material_products_size.py                               | Python     |         17 |          1 |          6 |         24 |
+| d:\artshelf\artshelf_project\goods\migrations\__init__.py                                                           | Python     |          0 |          0 |          1 |          1 |
+| d:\artshelf\artshelf_project\goods\models.py                                                                        | Python     |         86 |          1 |         13 |        100 |
+| d:\artshelf\artshelf_project\goods\templates\goods\catalog.html                                                     | HTML       |        186 |          1 |         12 |        199 |
+| d:\artshelf\artshelf_project\goods\templates\goods\product.html                                                     | HTML       |        107 |          0 |         13 |        120 |
+| d:\artshelf\artshelf_project\goods\templates\goods\upload_product.html                                              | HTML       |         29 |          0 |         13 |         42 |
+| d:\artshelf\artshelf_project\goods\templatetags\__init__.py                                                         | Python     |          0 |          0 |          1 |          1 |
+| d:\artshelf\artshelf_project\goods\templatetags\goods_tags.py                                                       | Python     |         16 |          0 |          5 |         21 |
+| d:\artshelf\artshelf_project\goods\tests.py                                                                         | Python     |          1 |          1 |          2 |          4 |
+| d:\artshelf\artshelf_project\goods\urls.py                                                                          | Python     |         10 |          0 |          5 |         15 |
+| d:\artshelf\artshelf_project\goods\utils.py                                                                         | Python     |         35 |          5 |          9 |         49 |
+| d:\artshelf\artshelf_project\goods\views.py                                                                         | Python     |         74 |          1 |         20 |         95 |
+| d:\artshelf\artshelf_project\main\__init__.py                                                                       | Python     |          0 |          0 |          1 |          1 |
+| d:\artshelf\artshelf_project\main\admin.py                                                                          | Python     |          1 |          1 |          2 |          4 |
+| d:\artshelf\artshelf_project\main\apps.py                                                                           | Python     |          4 |          0 |          3 |          7 |
+| d:\artshelf\artshelf_project\main\migrations\__init__.py                                                            | Python     |          0 |          0 |          1 |          1 |
+| d:\artshelf\artshelf_project\main\models.py                                                                         | Python     |          1 |          1 |          2 |          4 |
+| d:\artshelf\artshelf_project\main\templates\main\index.html                                                         | HTML       |        301 |          0 |          8 |        309 |
+| d:\artshelf\artshelf_project\main\tests.py                                                                          | Python     |          1 |          1 |          2 |          4 |
+| d:\artshelf\artshelf_project\main\urls.py                                                                           | Python     |          6 |          0 |          4 |         10 |
+| d:\artshelf\artshelf_project\main\views.py                                                                          | Python     |          7 |          1 |          1 |          9 |
+| d:\artshelf\artshelf_project\manage.py                                                                              | Python     |         15 |          3 |          5 |         23 |
+| d:\artshelf\artshelf_project\package-lock.json                                                                      | JSON       |          6 |          0 |          1 |          7 |
+| d:\artshelf\artshelf_project\static\deps\package-lock.json                                                          | JSON       |          6 |          0 |          1 |          7 |
+| d:\artshelf\artshelf_project\static\deps\package.json                                                               | JSON       |          5 |          0 |          0 |          5 |
+| d:\artshelf\artshelf_project\static\deps\scripts\main.js                                                            | JavaScript |         10 |          0 |          1 |         11 |
+| d:\artshelf\artshelf_project\static\deps\styles\_artists.scss                                                       | SCSS       |         62 |          0 |          1 |         63 |
+| d:\artshelf\artshelf_project\static\deps\styles\_buttons.scss                                                       | SCSS       |         14 |          0 |          0 |         14 |
+| d:\artshelf\artshelf_project\static\deps\styles\_markets.scss                                                       | SCSS       |         45 |          1 |          0 |         46 |
+| d:\artshelf\artshelf_project\static\deps\styles\_products.scss                                                      | SCSS       |         65 |          0 |          2 |         67 |
+| d:\artshelf\artshelf_project\static\deps\styles\index.scss                                                          | SCSS       |        574 |         17 |         35 |        626 |
+| d:\artshelf\artshelf_project\static\deps\styles\normalize.css                                                       | PostCSS    |        146 |        129 |         74 |        349 |
+| d:\artshelf\artshelf_project\static\deps\styles\profile.scss                                                        | SCSS       |         96 |          2 |          4 |        102 |
+| d:\artshelf\artshelf_project\static\deps\styles\style.css                                                           | PostCSS    |        841 |          8 |         42 |        891 |
+| d:\artshelf\artshelf_project\templates\base.html                                                                    | HTML       |        110 |          0 |          5 |        115 |
+| d:\artshelf\artshelf_project\templates\includes\notifications.html                                                  | HTML       |          8 |          0 |          2 |         10 |
+| d:\artshelf\artshelf_project\users\__init__.py                                                                      | Python     |          0 |          0 |          1 |          1 |
+| d:\artshelf\artshelf_project\users\admin.py                                                                         | Python     |          3 |          1 |          3 |          7 |
+| d:\artshelf\artshelf_project\users\apps.py                                                                          | Python     |          5 |          0 |          3 |          8 |
+| d:\artshelf\artshelf_project\users\forms.py                                                                         | Python     |         35 |          0 |          9 |         44 |
+| d:\artshelf\artshelf_project\users\migrations\0001_initial.py                                                       | Python     |         39 |          1 |          7 |         47 |
+| d:\artshelf\artshelf_project\users\migrations\0002_user_city.py                                                     | Python     |         12 |          1 |          6 |         19 |
+| d:\artshelf\artshelf_project\users\migrations\0003_alter_user_city.py                                               | Python     |         12 |          1 |          6 |         19 |
+| d:\artshelf\artshelf_project\users\migrations\0004_user_is_popular.py                                               | Python     |         12 |          1 |          6 |         19 |
+| d:\artshelf\artshelf_project\users\migrations\__init__.py                                                           | Python     |          0 |          0 |          1 |          1 |
+| d:\artshelf\artshelf_project\users\models.py                                                                        | Python     |         13 |          1 |          3 |         17 |
+| d:\artshelf\artshelf_project\users\templates\users\edit.html                                                        | HTML       |         96 |          0 |          6 |        102 |
+| d:\artshelf\artshelf_project\users\templates\users\login.html                                                       | HTML       |         35 |          0 |          3 |         38 |
+| d:\artshelf\artshelf_project\users\templates\users\profile.html                                                     | HTML       |        143 |          0 |          9 |        152 |
+| d:\artshelf\artshelf_project\users\templates\users\registration.html                                                | HTML       |         48 |          0 |          9 |         57 |
+| d:\artshelf\artshelf_project\users\tests.py                                                                         | Python     |          1 |          1 |          2 |          4 |
+| d:\artshelf\artshelf_project\users\urls.py                                                                          | Python     |         10 |          0 |          4 |         14 |
+| d:\artshelf\artshelf_project\users\views.py                                                                         | Python     |         79 |          8 |         18 |        105 |
+| Total                                                                                                               |            |      3,730 |        261 |        502 |      4,493 |
++---------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

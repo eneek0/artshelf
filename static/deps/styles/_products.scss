@@ -65,3 +65,10 @@
     font-size: 14px;
   }
 }
+
+.goods__pagination-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}

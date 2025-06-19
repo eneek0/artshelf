@@ -3,53 +3,62 @@
 
 {% block content %}
 <body>
-  <div class="register-container" style="padding-top: 150px;">
-    <h2>Регистрация</h2>
-    <form action="{% url "user:registration" %}" method="post">
-      {% csrf_token %}
-      <label for="id_email">Введите email:</label>
-      <input type="email" id="id_email" 
-      value="{% if form.email.value %}{{ form.email.value }}{% endif %}"
-      name="email" required>
-      {% if form.email.errors %}
-      <div class="alert alert-danger alert-dismissible fade show">{{form.email.errors}}</div>
-      {% endif %}
+  <div class="form">
+    <div class="form__container">
+      <h2 class="form__title title">Регистрация</h2>
+      <form action="{% url "user:registration" %}" method="post">
+        {% csrf_token %}
+        <div class="form__item">
+          <label class="form__label" for="id_email">Введите email:</label>
+          <input class="form__input" placeholder="Введите email:" type="email" id="id_email" 
+          value="{% if form.email.value %}{{ form.email.value }}{% endif %}"
+          name="email" required>
+          {% if form.email.errors %}
+          <div class="alert alert-danger alert-dismissible fade show">{{form.email.errors}}</div>
+          {% endif %}
+        </div>
 
+        <div class="form__item">
+          <label class="form__label" for="id_username">Придумайте имя пользователя:</label>
+          <input class="form__input" placeholder="Придумайте имя пользователя:" type="text" id="id_username" 
+          value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
+          name="username" required>
+          {% if form.username.errors %}
+          <div class="alert alert-danger alert-dismissible fade show">{{form.username.errors}}</div>
+          {% endif %}
+        </div>
 
-      <label for="id_username">Придумайте имя пользователя:</label>
-      <input type="text" id="id_username" 
-      value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
-      name="username" required>
-      {% if form.username.errors %}
-      <div class="alert alert-danger alert-dismissible fade show">{{form.username.errors}}</div>
-      {% endif %}
+        <div class="form__item">
+          <label class="form__label" for="id_password1">Введите пароль:</label>
+          <input class="form__input" placeholder="Введите пароль:" type="password" id="id_password1" 
+          value="{% if form.password1.value %}{{ form.password1.value }}{% endif %}"
+          name="password1" required>
+          {% if form.password1.errors %}
+          <div class="alert alert-danger alert-dismissible fade show">{{form.password1.errors}}</div>
+          {% endif %}
+        </div>
 
-      <label for="id_password1">Введите пароль:</label>
-      <input type="password" id="id_password1" 
-      value="{% if form.password1.value %}{{ form.password1.value }}{% endif %}"
-      name="password1" required>
-      {% if form.password1.errors %}
-      <div class="alert alert-danger alert-dismissible fade show">{{form.password1.errors}}</div>
-      {% endif %}
+        <div class="form__item">
+          <label class="form__label" for="id_password2">Повторите пароль:</label>
+          <input class="form__input" placeholder="Повторите пароль:" type="password" id="id_password2" 
+          value="{% if form.password2.value %}{{ form.password2.value }}{% endif %}"
+          name="password2" required>
+          {% if form.password2.errors %}
+          <div class="alert alert-danger alert-dismissible fade show">{{form.password2.errors}}</div>
+          {% endif %}
+        </div>
 
-      <label for="id_password2">Повторите пароль:</label>
-      <input type="password" id="id_password2" 
-      value="{% if form.password2.value %}{{ form.password2.value }}{% endif %}"
-      name="password2" required>
-      {% if form.password2.errors %}
-      <div class="alert alert-danger alert-dismissible fade show">{{form.password2.errors}}</div>
-      {% endif %}
+        <div class="form__checkbox">
+          <input type="checkbox" id="privacy" name="privacy" required>
+          <label for="privacy">Я согласен с политикой обработки персональных данных и политикой конфиденциальности.</label>
+        </div>
 
-      <div class="checkbox">
-        <input type="checkbox" id="privacy" name="privacy" required>
-        <label for="privacy">Я согласен с политикой обработки персональных данных и политикой конфиденциальности.</label>
+        <button class="form__button" type="submit">Создать аккаунт</button>
+      </form>
+
+      <div class="form__link">
+        Уже есть аккаунт? <a href="{% url "user:login" %}">Войти</a>
       </div>
-
-      <button type="submit">Создать аккаунт</button>
-    </form>
-
-    <div class="login-link">
-      Уже есть аккаунт? <a href="{% url "user:login" %}">Войти</a>
     </div>
   </div>
 </body>

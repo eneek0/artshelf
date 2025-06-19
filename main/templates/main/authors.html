@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<main>
+    <div class="content">
+        <div class="authors__container">
+        <nav class="product-page__breadcrumbs">
+            <a href="{% url "main:index" %}">Главная</a> /
+            <a href="{% url "catalog:index" %}">Художники</a>
+        </nav>
+        <h2 class="title">Художники</h2>
+        </div>
+    </div>
+</main>
+{% endblock content %}

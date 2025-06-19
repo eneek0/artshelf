@@ -25,7 +25,7 @@
                     </div>
                     <div>
                         <label for="id_username">Имя пользователя:</label>
-                        {{ form.username }}
+                        {{ form.username }} 
                     </div>
                     <div>
                         <label for="id_description">Описание:</label>
@@ -39,10 +39,14 @@
                         <span class="material-symbols-outlined">calendar_month</span>
                         Аккаунт создан: {{ profile_user.date_joined|date:"d.m.Y" }}
                     </p>
-                    <button type="submit" class="button">Сохранить изменения</button>
+                    <button type="submit" class="button save-button">Сохранить изменения</button>
                 </form>
                 {% else %}
+                {% if user.image %}
                 <img src="{{ user.image.url }}" alt="" class="profile__icon">
+                {% else %}
+                <img src="{% static 'deps/assets/profile.jpg' %}" alt="" class="profile__icon">
+                {% endif %}
                 <h3 class="profile__username">{{profile_user.username}}</h3>
                 {% if profile_user.description %}
                 <p class="profile__description">{{profile_user.description}}</p>

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<main>
+    <div class="content">
+        <nav class="product-page__breadcrumbs">
+            <a href="{% url "main:index" %}">Главная</a> /
+            <a href="{% url "catalog:index" %}">Мероприятия</a>
+        </nav>
+        <h2 class="title">Мероприятия</h2>
+    </div>
+</main>
+{% endblock content %}

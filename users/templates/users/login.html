@@ -3,36 +3,36 @@
 
 {% block content %}
 <body>
-<div class="register-container" style="padding-top: 150px;">
-    <h2>Вход</h2>
-    <form action="{% url "user:login" %}" method="post">
-        {% csrf_token %}
-        {% comment %} {% if form.non_field_errors %}
-        <p>{{form.non_field_errors}}</p>
-        {% endif %} {% endcomment %}
-        <div>
-            <label for="id_username">Введите имя:</label>
-            <input type="text"
-            value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
-            name="username" 
-            id="id_username" 
-            placeholder="Введите ваше имя пользователя" required>
-        </div>
-        <div>
-            <label for="id_password">Введите пароль:</label>
-            <input type="password" 
-            id="id_password" 
-            name="password" 
-            placeholder="Введите ваш пароль" required>
-        </div>
+    <div class="form">
+        <div class="form__container">
+            <h2 class="form__title title">Вход</h2>
+            <form action="{% url "user:login" %}" method="post">
+                {% csrf_token %}
+                {% comment %} {% if form.non_field_errors %}
+                <p>{{form.non_field_errors}}</p>
+                {% endif %} {% endcomment %}
+                <div class="form__item">
+                    <label class="form__label" for="id_username">Введите имя:</label>
+                    <input class="form__input" placeholder="Введите имя:" type="text"
+                    value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
+                    name="username" 
+                    id="id_username" required>
+                </div>
+                <div class="form__item">
+                    <label class="form__label" for="id_password">Введите пароль:</label>
+                    <input class="form__input" placeholder="Введите пароль:" type="password" 
+                    id="id_password" 
+                    name="password"required>
+                </div>
 
-        <a href="#">Забыли пароль?</a>
+                <a class="form__link" href="#">Забыли пароль?</a>
 
-        <button type="submit">Войти в аккаунт</button>
-    </form>
-    <div class="login-link">
-        Нет аккаунта? <a href="{% url "user:registration" %}">Зарегистрироваться</a>
+                <button class="form__button" type="submit">Войти в аккаунт</button>
+            </form>
+            <div class="form__link">
+                Нет аккаунта? <a href="{% url "user:registration" %}">Зарегистрироваться</a>
+            </div>
+        </div>
     </div>
-</div>
 </body>
 {% endblock content %}

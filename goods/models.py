@@ -3,6 +3,8 @@ from unicodedata import category
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth import get_user_model
+from django.utils.text import slugify
+from unidecode import unidecode
 
 # Create your models here.
 class Categories(models.Model):
@@ -40,7 +42,6 @@ class Products(models.Model):
     tags = models.ManyToManyField(Tags, blank=True, verbose_name="Тэги")
     size = models.CharField(max_length=50, unique=False, blank=True, verbose_name="Размер")
     material = models.CharField(max_length=150, blank=True, unique=False, verbose_name="Материал")
-
     user = models.ForeignKey(
         get_user_model(),
         on_delete=models.CASCADE,
@@ -49,6 +50,17 @@ class Products(models.Model):
         null=True,  # временно разрешаем пустые значения
         blank=True
     )
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base_slug = slugify(unidecode(self.title))
+            unique_slug = base_slug
+            counter = 1
+            while Products.objects.filter(slug=unique_slug).exists():
+                unique_slug = f"{base_slug}-{counter}"
+                counter += 1
+            self.slug = unique_slug
+        super().save(*args, **kwargs)
 
     class Meta:
         db_table: str = 'product'

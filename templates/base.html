@@ -32,10 +32,10 @@
           <a href="{% url "catalog:index" %}" class="header__button">Каталог</a>
         </li>
         <li class="header__link">
-          <a href="#" class="header__button">Художники</a>
+          <a href="{% url "main:authors" %}" class="header__button">Художники</a>
         </li>
         <li class="header__link">
-          <a href="#" class="header__button">Мероприятия</a>
+          <a href="{% url "main:events" %}" class="header__button">Мероприятия</a>
         </li>
       </ul>
       <div class="header__item header__actions">
@@ -50,7 +50,7 @@
             <button class="search-bar__filters-item">Мероприятия</button>
           </div>
         </div>
-        <a href="#" class="header__button header__button--accent" style="margin-right: 21px;">Загрузить свой мерч</a>
+        <a href="{% url "catalog:upload_product" %}" class="header__button header__button--accent" style="margin-right: 21px;">Загрузить свой мерч</a>
         <a href="#" class="header__button header__button--circle">
           <span class="material-symbols-outlined">favorite</span>
         </a>
@@ -93,7 +93,7 @@
         <ul class="footer__navigation-list">
           <li class="footer__navigation-item"><a href="{% url "main:index" %}">Главная</a></li>
           <li class="footer__navigation-item"><a href="{% url "catalog:index" %}">Каталог</a></li>
-          <li class="footer__navigation-item"><a href="">Художники</a></li>
+          <li class="footer__navigation-item"><a href="{% url "main:authors" %}">Художники</a></li>
           <li class="footer__navigation-item"><a href="">Мероприятия</a></li>
         </ul>
         <ul class="footer__navigation-list">

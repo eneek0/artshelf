@@ -16,7 +16,7 @@
                     </div>
                     <div>
                         <label for="id_username">Имя</label>
-                        <input type="text" id="id_username" 
+                        <input class="form__input" type="text" id="id_username" 
                         value="{% if form.username.value %}{{ form.username.value }}{% endif %}"
                         name="username" required
                         placeholder="Введите ваше имя пользователя">
@@ -27,7 +27,7 @@
                     {% comment %} <h3 class="profile__username">{{profile_user.username}}</h3> {% endcomment %}
                     <div>
                         <label for="id_description">Описание</label>
-                        <input type="text" id="id_description" 
+                        <input class="form__input" type="text" id="id_description" 
                         value="{% if form.description.value %}{{ form.description.value }}{% endif %}"
                         name="description" required
                         placeholder="Введите описание">
@@ -35,7 +35,7 @@
                     {% comment %} <p class="profile__description">{{profile_user.description}}</p> {% endcomment %}
                     <div>
                         <label for="id_city">Город</label>
-                        <input type="text" id="id_city" 
+                        <input class="form__input" type="text" id="id_city" 
                         value="{% if form.city.value %}{{ form.city.value }}{% endif %}"
                         name="city" required
                         placeholder="Введите ваш город">
